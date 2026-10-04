@@ -1,0 +1,29 @@
+{
+  "name": "dharmasastra-vue",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check:source": "node scripts/check-source.mjs",
+    "check": "npm run format:check && npm run check:source && npm run build"
+  },
+  "dependencies": {
+    "gsap": "3.15.0",
+    "vue": "^3.5.0",
+    "vue-router": "^4.6.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.0",
+    "prettier": "3.6.2",
+    "vite": "^6.1.0"
+  },
+  "description": "Bilingual Vue 3 notary website with four routes and GSAP animations",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  }
+}

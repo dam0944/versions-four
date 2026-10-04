@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">Loading</title>
+  <desc id="desc">Gold scales of justice gently balancing inside a rotating ring.</desc>
+  <style>
+    .ring { transform-origin: 80px 80px; animation: spin 2.8s linear infinite; }
+    .beam { transform-origin: 80px 56px; animation: balance 2.4s ease-in-out infinite; }
+    .left { transform-origin: 48px 56px; animation: counter 2.4s ease-in-out infinite; }
+    .right { transform-origin: 112px 56px; animation: counter 2.4s ease-in-out infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes balance { 0%,100% { transform: rotate(-8deg); } 50% { transform: rotate(8deg); } }
+    @keyframes counter { 0%,100% { transform: rotate(8deg); } 50% { transform: rotate(-8deg); } }
+    @media (prefers-reduced-motion: reduce) { .ring,.beam,.left,.right { animation: none; } }
+  </style>
+  <circle cx="80" cy="80" r="65" fill="none" stroke="#b8893a" stroke-opacity=".16" stroke-width="2"/>
+  <circle class="ring" cx="80" cy="80" r="65" fill="none" stroke="#b8893a" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="80 329"/>
+  <g fill="none" stroke="#b8893a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M80 48V111M67 113H93M60 120H100"/>
+    <g class="beam">
+      <path d="M43 56H117"/>
+      <g class="left">
+        <path d="M48 56L34 86M48 56L62 86"/>
+        <path d="M33 86H63C61 102 35 102 33 86Z" fill="#b8893a" fill-opacity=".12"/>
+      </g>
+      <g class="right">
+        <path d="M112 56L98 86M112 56L126 86"/>
+        <path d="M97 86H127C125 102 99 102 97 86Z" fill="#b8893a" fill-opacity=".12"/>
+      </g>
+    </g>
+    <circle cx="80" cy="56" r="4" fill="#b8893a" stroke="none"/>
+    <path d="M80 39L84 44L80 49L76 44Z" fill="#b8893a" stroke="none"/>
+  </g>
+</svg>

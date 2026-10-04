@@ -1,0 +1,57 @@
+:root {
+  --content-max-width: 1520px;
+  --cream: #f4f1ea;
+  --cream2: #f2ebdc;
+  --ink: #1b2437;
+  --muted: #586177;
+  --navy: #14213d;
+  --navy2: #0a1224;
+  --gold: #b8893a;
+  --champ: #d8bc84;
+  --card: #fff;
+  --line: #e3d9c4;
+  --onnavy: #f4efe4;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --cream: #121824;
+    --cream2: #182030;
+    --ink: #ece8de;
+    --muted: #a3abbb;
+    --card: #1b2436;
+    --line: #2c3752;
+  }
+}
+:root[data-theme='dark'] {
+  --cream: #121824;
+  --cream2: #182030;
+  --ink: #ece8de;
+  --muted: #a3abbb;
+  --card: #1b2436;
+  --line: #2c3752;
+}
+
+/* Main customization settings. Existing values preserve the original design. */
+:root {
+  --color-primary: #071a2e;
+  --color-accent-light: #d8bc84;
+  --color-accent: #b9975b;
+  --color-button: #dcecfb;
+  --color-button-text: #304861;
+  --font-body: 'Inter', 'Noto Sans Khmer', system-ui, sans-serif;
+  --font-brand: 'Cormorant Garamond', serif;
+  --font-display: 'Cormorant Garamond', 'Noto Serif Khmer', Georgia, serif;
+  --font-khmer-heading: 'Noto Serif Khmer', serif;
+  --font-navigation: 'DM Sans', 'Noto Sans Khmer', system-ui, sans-serif;
+  --font-khmer: 'Noto Sans Khmer', sans-serif;
+  --font-khmer-brand: 'Moul', 'Noto Sans Khmer', serif;
+  --font-khmer-decorative: 'Moul', serif;
+  --font-heading: 'Inter', 'Noto Sans Khmer', sans-serif;
+  --font-quote: Georgia, 'Times New Roman', serif;
+  --font-system: Arial, sans-serif;
+  --font-latin: 'Inter', sans-serif;
+  --font-khmer-title: 'Moul', 'Noto Sans Khmer', sans-serif;
+}
