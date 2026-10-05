@@ -1,8 +1,8 @@
 <script setup>
-import SiteHeader from './components/layout/SiteHeader.vue';
-import SiteFooter from './components/layout/SiteFooter.vue';
-import { useLanguage } from './composables/useLanguage.js';
-import { usePageSmoother } from './composables/usePageSmoother.js';
+import SiteHeader from "./components/layout/SiteHeader.vue";
+import SiteFooter from "./components/layout/SiteFooter.vue";
+import { useLanguage } from "./composables/useLanguage.js";
+import { usePageSmoother } from "./composables/usePageSmoother.js";
 
 const { language, changeLanguage, handleLanguageKey } = useLanguage();
 const { ready, headerSpace } = usePageSmoother(language);

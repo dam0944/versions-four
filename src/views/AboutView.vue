@@ -1,10 +1,10 @@
 <script setup>
-import { provide, ref } from 'vue';
-import { useImageReveals } from '../composables/useImageReveals.js';
-import ExpertiseSection from '../components/about/ExpertiseSection.vue';
-import TeamSection from '../components/about/TeamSection.vue';
-import AboutOverview from '../components/about/AboutOverview.vue';
-provide('disablePageAnimations', true);
+import { provide, ref } from "vue";
+import { useImageReveals } from "../composables/useImageReveals.js";
+import ExpertiseSection from "../components/about/ExpertiseSection.vue";
+import TeamSection from "../components/about/TeamSection.vue";
+import AboutOverview from "../components/about/AboutOverview.vue";
+provide("disablePageAnimations", true);
 const page = ref(null);
 useImageReveals(page);
 </script>
@@ -19,9 +19,13 @@ useImageReveals(page);
         </h1>
 
         <p class="lead">
-          <span class="en"> Your Ultimate Destination for the Best Legal Aid Services. </span>
+          <span class="en">
+            Your Ultimate Destination for the Best Legal Aid Services.
+          </span>
 
-          <span class="km"> ជម្រើសដ៏ល្អបំផុតរបស់លោកអ្នក សម្រាប់សេវាជំនួយផ្នែកច្បាប់ដ៏ប្រសើរ។ </span>
+          <span class="km">
+            ជម្រើសដ៏ល្អបំផុតរបស់លោកអ្នក សម្រាប់សេវាជំនួយផ្នែកច្បាប់ដ៏ប្រសើរ។
+          </span>
         </p>
       </div>
       <div class="bottom-round-bg" aria-hidden="true"></div>
@@ -31,7 +35,12 @@ useImageReveals(page);
 
     <div class="trust-divider">
       <p class="trust-badge">
-        <svg class="trust-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <svg
+          class="trust-icon"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          aria-hidden="true"
+        >
           <path
             d="m12 1 3 3 4-.1.1 4L22 11l-2.9 3.1-.1 4-4-.1-3 3-3-3-4 .1-.1-4L2 11l2.9-3.1.1-4 4 .1Z"
           />
@@ -45,7 +54,9 @@ useImageReveals(page);
           />
         </svg>
 
-        <span class="en"> Trust Dharmasastra for Reliable Notarization Anytime, Anywhere </span>
+        <span class="en">
+          Trust Dharmasastra for Reliable Notarization Anytime, Anywhere
+        </span>
         <span class="km">
           ជឿទុកចិត្តលើធម្មសាស្ត្រ សម្រាប់សេវាសារការីគ្រប់ពេលវេលា និងគ្រប់ទីកន្លែង
         </span>
@@ -75,7 +86,7 @@ useImageReveals(page);
   z-index: 999;
   height: 100px;
   margin-bottom: -2px;
-  background-image: url('/images/round-bottom-bg.svg');
+  background-image: url("/images/round-bottom-bg.svg");
   background-position: 50% 100%;
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -83,16 +94,14 @@ useImageReveals(page);
 }
 
 .about-intro::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background-image:
-    linear-gradient(90deg, rgb(7 26 46 / 65%), rgb(7 26 46 / 10%)), url('/images/image.png');
-  background-size:
-    100% 100%,
-    cover;
+  background-image: linear-gradient(90deg, rgb(7 26 46 / 65%), rgb(7 26 46 / 10%)),
+    url("/images/image.png");
+  background-size: 100% 100%, cover;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -145,7 +154,7 @@ h1 {
 }
 
 .trust-divider::before {
-  content: '';
+  content: "";
   position: absolute;
   inset-inline: 0;
   top: 50%;
@@ -191,8 +200,8 @@ h1 {
   }
 
   .about-intro::before {
-    background-image:
-      linear-gradient(rgb(7 26 46 / 75%), rgb(7 26 46 / 75%)), url('/images/image.png');
+    background-image: linear-gradient(rgb(7 26 46 / 75%), rgb(7 26 46 / 75%)),
+      url("/images/image.png");
   }
 }
 </style>
