@@ -1,38 +1,40 @@
 <script setup>
-import { socialLinks, members } from '../../data/team.js';
-import { enhancedMotionQuery } from '../../utils/performance.js';
+import { socialLinks, members } from "../../data/team.js";
+import { enhancedMotionQuery } from "../../utils/performance.js";
+import { useI18n } from "vue-i18n";
 
-import { inject, onMounted, onBeforeUnmount, ref } from 'vue';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { inject, onMounted, onBeforeUnmount, ref } from "vue";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const teamSection = ref(null);
-const disablePageAnimations = inject('disablePageAnimations', false);
+const { t, locale } = useI18n();
+const disablePageAnimations = inject("disablePageAnimations", false);
 let media;
 
 onMounted(() => {
   if (disablePageAnimations) return;
   media = gsap.matchMedia();
   media.add(enhancedMotionQuery, () => {
-    const photos = teamSection.value.querySelectorAll('.team-photo img');
+    const photos = teamSection.value.querySelectorAll(".team-photo img");
     photos.forEach((photo, index) => {
       gsap.fromTo(
         photo,
-        { clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)' },
+        { clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)" },
         {
-          clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
           duration: 1.2,
           delay: index * 0.12,
-          ease: 'power3.inOut',
-          clearProps: 'clipPath',
+          ease: "power3.inOut",
+          clearProps: "clipPath",
           scrollTrigger: {
             trigger: photo,
-            start: 'top 85%',
+            start: "top 85%",
             once: true,
           },
-        },
+        }
       );
     });
   });
@@ -40,35 +42,45 @@ onMounted(() => {
 
 onBeforeUnmount(() => media?.revert());
 </script>
-
 <template>
-  <section ref="teamSection" class="team-section">
+  <section id="team" ref="teamSection" class="team-section">
     <div class="team-container">
       <header class="team-heading">
-        <p class="team-eyebrow">
-          <span class="en">Meet our team</span>
-          <span class="km">ជួបជាមួយក្រុមការងាររបស់យើង</span>
-        </p>
-
-        <h2>
-          <span class="en"> Working together to protect your interests. </span>
-          <span class="km"> រួមគ្នាដើម្បីការពារផលប្រយោជន៍របស់លោកអ្នក។ </span>
-        </h2>
+        <div
+          class="tag-title-group"
+          style="display: flex; align-items: baseline; gap: 12px"
+        >
+          <span class="tag" style="color: #c5a059; font-weight: bold">{{
+            t("aboutPage.team.index")
+          }}</span>
+          <p class="team-eyebrow" style="margin: 0">{{ t("aboutPage.team.eyebrow") }}</p>
+        </div>
+        <h2>{{ t("aboutPage.team.heading") }}</h2>
       </header>
 
       <div class="team-grid">
-        <article v-for="member in members" :key="member.name" class="team-card">
+        <article v-for="member in members" :key="member.id" class="team-card">
           <div class="team-photo">
-            <img decoding="async" :src="member.image" :alt="member.name" loading="lazy" />
+            <img
+              decoding="async"
+              :src="member.image"
+              :alt="locale === 'km' ? member.name.km : member.name.en"
+              loading="lazy"
+            />
 
-            <div v-if="member.socials.length" class="team-socials">
+            <div v-if="member.socials && member.socials.length" class="team-socials">
               <a
                 v-for="social in member.socials"
                 :key="social.platform"
                 :href="social.url"
                 target="_blank"
                 rel="noopener noreferrer"
-                :aria-label="`${member.name} on ${social.platform}`"
+                :aria-label="
+                  t('aboutPage.socialLinkLabel', {
+                    name: locale === 'km' ? member.name.km : member.name.en,
+                    platform: social.platform,
+                  })
+                "
               >
                 <svg
                   class="social-icon"
@@ -84,10 +96,9 @@ onBeforeUnmount(() => media?.revert());
           </div>
 
           <div class="team-details">
-            <h3>{{ member.name }}</h3>
-            <p>
-              <span class="en">Lawyer</span>
-              <span class="km">មេធាវី</span>
+            <h3>{{ locale === 'km' ? member.name.km : member.name.en }}</h3>
+            <p class="member-position">
+              {{ locale === 'km' ? member.position.km : member.position.en }}
             </p>
           </div>
         </article>

@@ -1,9 +1,11 @@
 <script setup>
-import { ref } from 'vue';
-import { skills } from '../../data/skills.js';
-import { useSkillCounters } from '../../composables/useSkillCounters.js';
+import { ref } from "vue";
+import { useI18n } from "vue-i18n";
+import { skills } from "../../data/skills.js";
+import { useSkillCounters } from "../../composables/useSkillCounters.js";
 
 const props = defineProps({ animateCounters: Boolean });
+const { t, locale } = useI18n();
 const skillList = ref(null);
 const counters = useSkillCounters(skillList, skills, () => props.animateCounters);
 </script>
@@ -13,78 +15,38 @@ const counters = useSkillCounters(skillList, skills, () => props.animateCounters
     <div class="expertise-container">
       <div class="expert-card">
         <div class="expert-heading">
-          <p class="eyebrow">
-            <span class="en">Who we are</span>
-            <span class="km">យើងជានរណា</span>
-          </p>
-
-          <h2>
-            <span class="en">Dedicated to your legal needs.</span>
-            <span class="km">យកចិត្តទុកដាក់លើតម្រូវការផ្នែកច្បាប់របស់លោកអ្នក។</span>
-          </h2>
+          <p class="eyebrow">{{ t("aboutPage.expertise.who") }}</p>
+          <h2>{{ t("aboutPage.expertise.dedicated") }}</h2>
         </div>
-
         <img
           decoding="async"
           class="expert-portrait"
           src="/images/website-5.png"
-          alt="Law firm representative"
+          :alt="t('aboutPage.expertisePortraitAlt')"
           loading="lazy"
         />
       </div>
-
       <div class="expert-introduction">
-        <blockquote>
-          <span class="en">
-            Clear advice, personal attention, and a commitment to protecting your interests.
-          </span>
-          <span class="km">
-            ការប្រឹក្សាច្បាស់លាស់ ការយកចិត្តទុកដាក់ និងការប្តេជ្ញាការពារផលប្រយោជន៍របស់លោកអ្នក។
-          </span>
-        </blockquote>
-
-        <p>
-          <span class="en">
-            We help individuals and businesses understand their legal options and move forward with
-            confidence.
-          </span>
-          <span class="km">
-            យើងជួយបុគ្គល និងអាជីវកម្មឱ្យយល់ពីជម្រើសផ្នែកច្បាប់ និងបន្តទៅមុខដោយទំនុកចិត្ត។
-          </span>
-        </p>
+        <blockquote>{{ t("aboutPage.expertise.quote") }}</blockquote>
+        <p>{{ t("aboutPage.expertise.intro") }}</p>
       </div>
-
       <div class="expert-skills">
-        <h3>
-          <span class="en">Our areas of legal expertise</span>
-          <span class="km">វិស័យជំនាញផ្នែកច្បាប់របស់យើង</span>
-        </h3>
-
-        <p class="skills-description">
-          <span class="en">
-            Practical guidance tailored to your circumstances, from personal matters to business
-            requirements.
-          </span>
-          <span class="km">
-            ការណែនាំសមស្របតាមស្ថានភាពរបស់លោកអ្នក ចាប់ពីបញ្ហាផ្ទាល់ខ្លួនរហូតដល់តម្រូវការអាជីវកម្ម។
-          </span>
-        </p>
-
-        <!-- Sample percentages: replace with verified figures before publishing. -->
+        <h3>{{ t("aboutPage.expertise.heading") }}</h3>
+        <p class="skills-description">{{ t("aboutPage.expertise.description") }}</p>
         <div ref="skillList" class="skill-list">
-          <div v-for="(skill, index) in skills" :key="skill.en" class="skill-item">
+          <div v-for="(skill, index) in skills" :key="skill.id" class="skill-item">
             <div class="skill-label">
-              <span>
-                <span class="en">{{ skill.en }}</span>
-                <span class="km">{{ skill.km }}</span>
-              </span>
+              <span>{{ locale === "km" ? skill.km : skill.en }}</span>
               <span class="skill-value" :aria-label="`${skill.value}%`">
                 <span aria-hidden="true">{{ Math.round(counters[index].value) }}%</span>
               </span>
             </div>
 
             <div class="skill-track" aria-hidden="true">
-              <div class="skill-fill" :style="{ width: `${counters[index].value}%` }"></div>
+              <div
+                class="skill-fill"
+                :style="{ width: `${counters[index].value}%` }"
+              ></div>
             </div>
           </div>
         </div>
@@ -101,10 +63,9 @@ const counters = useSkillCounters(skillList, skills, () => props.animateCounters
   background: var(--color-primary);
 }
 
-/* White upper band; photograph behind the lower content. */
 .expertise-section::before,
 .expertise-section::after {
-  content: '';
+  content: "";
   position: absolute;
   inset-inline: 0;
   z-index: -1;
@@ -119,7 +80,8 @@ const counters = useSkillCounters(skillList, skills, () => props.animateCounters
 .expertise-section::after {
   top: 260px;
   bottom: 0;
-  background: linear-gradient(rgb(7 26 46 / 90%), rgb(7 26 46 / 90%)), var(--color-primary);
+  background: linear-gradient(rgb(7 26 46 / 90%), rgb(7 26 46 / 90%)),
+    var(--color-primary);
 }
 
 .expertise-container {
@@ -134,9 +96,13 @@ const counters = useSkillCounters(skillList, skills, () => props.animateCounters
 .expert-card {
   grid-column: 1;
   grid-row: 1 / 3;
+  align-self: start;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  width: 100%;
+  height: 600px;
+  box-sizing: border-box;
   border: 8px solid var(--color-accent-light);
   background: #fff;
 }
@@ -162,8 +128,10 @@ const counters = useSkillCounters(skillList, skills, () => props.animateCounters
 
 .expert-portrait {
   display: block;
+  flex: 1 1 auto;
   width: 100%;
-  height: 420px;
+  min-height: 0;
+  height: auto;
   margin-top: 28px;
   object-fit: contain;
   object-position: center bottom;
@@ -273,8 +241,8 @@ const counters = useSkillCounters(skillList, skills, () => props.animateCounters
     padding: 24px 20px 0;
   }
 
-  .expert-portrait {
-    height: 380px;
+  .expert-card {
+    height: 560px;
   }
 
   .expert-introduction {
@@ -313,17 +281,15 @@ const counters = useSkillCounters(skillList, skills, () => props.animateCounters
   .expert-card {
     width: 100%;
     max-width: 420px;
+    height: 540px;
     margin-inline: auto;
     box-sizing: border-box;
   }
 
-  .expert-portrait {
-    height: 360px;
-  }
-
   .expert-skills {
     padding: 32px 24px;
-    background: linear-gradient(rgb(7 26 46 / 92%), rgb(7 26 46 / 92%)), var(--color-primary);
+    background: linear-gradient(rgb(7 26 46 / 92%), rgb(7 26 46 / 92%)),
+      var(--color-primary);
   }
 }
 </style>

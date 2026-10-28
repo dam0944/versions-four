@@ -1,4 +1,3 @@
-/* Shared layout, section styling, and responsive overrides. */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 84px;
@@ -35,7 +34,6 @@ html:has(.about-page, .contact-page, .services-page) {
     transform: translateY(0);
   }
 }
-/* Hide scrollbars while preserving mouse, touch and keyboard scrolling. */
 html,
 body,
 * {
@@ -487,12 +485,44 @@ body:has(#l-km:checked) .firm h2 {
 .firm .txt p:first-child {
   color: #1b2840;
 }
+.firm .mv {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 48px;
+  max-width: var(--content-max-width);
+  margin: 56px auto 0;
+}
+.firm .mv > div {
+  min-width: 0;
+  padding-top: 20px;
+  border-top: 1px solid #c99a52;
+}
+.firm .mv h3 {
+  margin: 0 0 12px;
+  color: #16233a;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+.firm .mv p {
+  max-width: 50rem;
+  margin: 0;
+  color: #5a6477;
+  font-size: 15px;
+  line-height: 1.9;
+}
+body:has(#l-km:checked) .firm .mv h3 {
+  line-height: 1.6;
+}
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) .firm h2,
-  :root:not([data-theme='light']) .firm .txt p:first-child {
+  :root:not([data-theme='light']) .firm .txt p:first-child,
+  :root:not([data-theme='light']) .firm .mv h3 {
     color: var(--ink);
   }
   :root:not([data-theme='light']) .firm .tag {
+    color: var(--muted);
+  }
+  :root:not([data-theme='light']) .firm .mv p {
     color: var(--muted);
   }
 }
@@ -506,6 +536,17 @@ body:has(#l-km:checked) .firm h2 {
   }
   .firm .txt {
     padding-top: 12px;
+  }
+  .firm .mv {
+    gap: 32px;
+    margin-top: 40px;
+  }
+}
+@media (max-width: 600px) {
+  .firm .mv {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: 32px;
   }
 }
 .svcs {
@@ -949,6 +990,7 @@ body:has(#l-km:checked) .ct .tag {
   letter-spacing: 0.04em;
   font-size: 11px;
 }
+
 .ct h2 {
   font-size: clamp(2.5rem, 4.8vw, 5.2rem);
   line-height: 1.12;

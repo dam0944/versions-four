@@ -1,15 +1,34 @@
 <script setup>
-import { testimonials } from '../../data/testimonials.js';
-import { ref, onMounted, onBeforeUnmount } from 'vue';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { enhancedMotionQuery } from '../../utils/performance.js';
+import { testimonials } from "../../data/testimonials.js";
+import client1 from "../../assets/picture/testimonial/client-1.png";
+import client2 from "../../assets/picture/testimonial/client-2.png";
+import client3 from "../../assets/picture/testimonial/client-3.png";
+import client4 from "../../assets/picture/testimonial/client-4.png";
+import client5 from "../../assets/picture/testimonial/client-6.png";
+import { ref, onMounted, onBeforeUnmount } from "vue";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { enhancedMotionQuery } from "../../utils/performance.js";
+import { useI18n } from "vue-i18n";
 
 gsap.registerPlugin(ScrollTrigger);
 const sectionRef = ref(null);
 const viewportRef = ref(null);
 const trackRef = ref(null);
+const { t } = useI18n();
+const testimonialImages = [client1, client2, client3, client4, client5];
 let media;
+let resizeObserver;
+let refreshFrame;
+let disposed = false;
+
+const refreshScrollTrigger = () => {
+  if (disposed) return;
+  cancelAnimationFrame(refreshFrame);
+  refreshFrame = requestAnimationFrame(() => {
+    if (!disposed) ScrollTrigger.refresh();
+  });
+};
 
 onMounted(() => {
   media = gsap.matchMedia();
@@ -20,83 +39,88 @@ onMounted(() => {
     viewport.scrollLeft = 0;
     gsap.to(track, {
       x: () => -distance(),
-      ease: 'none',
+      ease: "none",
       scrollTrigger: {
         trigger: sectionRef.value,
-        start: 'top top',
-        end: () => '+=' + (distance() + window.innerHeight * 0.8),
+        start: "top top",
+        end: () => "+=" + (distance() + window.innerHeight * 0.8),
         scrub: 0.45,
         anticipatePin: 1,
         pin: true,
         invalidateOnRefresh: true,
       },
     });
+
+    if ("ResizeObserver" in window) {
+      resizeObserver = new ResizeObserver(refreshScrollTrigger);
+      resizeObserver.observe(viewport);
+      resizeObserver.observe(track);
+    }
+    refreshScrollTrigger();
+    document.fonts?.ready.then(refreshScrollTrigger);
+
+    return () => resizeObserver?.disconnect();
   });
 });
-// Revert only this component's animations and pin on navigation.
-onBeforeUnmount(() => media?.revert());
+onBeforeUnmount(() => {
+  disposed = true;
+  cancelAnimationFrame(refreshFrame);
+  resizeObserver?.disconnect();
+  media?.revert();
+});
 </script>
-
 <template>
-  <section ref="sectionRef" class="testimonials-section">
+  <section id="results" ref="sectionRef" class="testimonials-section">
     <div class="testimonials-container">
       <header class="testimonials-heading">
-        <p class="eyebrow">
-          <span class="en">Client testimonials</span>
-          <span class="km">មតិយោបល់របស់អតិថិជន</span>
-        </p>
-
-        <h2>
-          <span class="en">What our clients say</span>
-          <span class="km">អ្វីដែលអតិថិជននិយាយអំពីយើង</span>
-        </h2>
-
-        <p class="heading-description">
-          <span class="en"> Personal experiences with our service and support. </span>
-          <span class="km"> បទពិសោធន៍ផ្ទាល់របស់អតិថិជនជាមួយសេវាកម្ម និងការគាំទ្ររបស់យើង។ </span>
-        </p>
+        <div
+          class="tag-title-group"
+          style="display: flex; align-items: baseline; gap: 12px"
+        >
+          <span class="tag" style="color: #c5a059; font-weight: bold">{{
+            t("testimonials.index")
+          }}</span>
+          <p class="eyebrow" style="margin: 0">{{ t("testimonials.label") }}</p>
+        </div>
+        <h2>{{ t("testimonials.title") }}</h2>
+        <p class="heading-description">{{ t("testimonials.description") }}</p>
       </header>
-
       <div class="testimonials-slider">
         <div
           ref="viewportRef"
           class="testimonials-viewport"
           tabindex="0"
           role="region"
-          aria-label="Client testimonials"
+          :aria-label="t('testimonials.regionLabel')"
         >
           <div ref="trackRef" class="testimonials-grid">
             <figure
-              v-for="(testimonial, index) in testimonials"
+              v-for="index in [0, 1, 2, 3, 4]"
               :key="index"
               class="testimonial-card"
             >
-              <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <svg
+                class="quote-icon"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
                 <path
                   d="M4 4h7v7c0 5-2.5 8-7 9v-3c2.5-.8 3.7-2.7 4-5H4V4Zm10 0h7v7c0 5-2.5 8-7 9v-3c2.5-.8 3.7-2.7 4-5h-4V4Z"
                 />
               </svg>
-
-              <blockquote>
-                <span class="en">{{ testimonial.quoteEn }}</span>
-                <span class="km">{{ testimonial.quoteKm }}</span>
-              </blockquote>
-
+              <blockquote>{{ t(`testimonials.items.${index}.quote`) }}</blockquote>
               <figcaption class="client-details">
                 <img
                   decoding="async"
                   class="client-avatar"
-                  :src="testimonial.image"
-                  :alt="testimonial.name"
+                  :src="testimonialImages[index]"
+                  :alt="t(`testimonials.items.${index}.name`)"
                   loading="lazy"
                 />
-
                 <div>
-                  <p class="client-name">{{ testimonial.name }}</p>
-                  <p class="client-label">
-                    <span class="en">Client</span>
-                    <span class="km">អតិថិជន</span>
-                  </p>
+                  <p class="client-name">{{ t(`testimonials.items.${index}.name`) }}</p>
+                  <p class="client-label">{{ t("testimonials.clientLabel") }}</p>
                 </div>
               </figcaption>
             </figure>

@@ -8,6 +8,9 @@ const HomeView = () => import('../views/HomeView.vue');
 const AboutView = () => import('../views/AboutView.vue');
 const ContactView = () => import('../views/ContactView.vue');
 const ServiceView = () => import('../views/ServiceView.vue');
+const TeamView = () => import('../views/TeamView.vue');
+const ResultView = () => import('../views/ResultView.vue');
+const ResourcesView = () => import('../views/ResourcesView.vue');
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -20,6 +23,18 @@ const router = createRouter({
     {
       path: '/about',
       component: AboutView,
+    },
+    {
+      path: '/team',
+      component: TeamView,
+    },
+    {
+      path: '/results',
+      component: ResultView,
+    },
+    {
+      path: '/resources',
+      component: ResourcesView,
     },
     {
       path: '/service',
@@ -37,8 +52,6 @@ const router = createRouter({
 
   async scrollBehavior(to, from, savedPosition) {
     if (from === START_LOCATION) {
-      // A reload can carry a stale history.state.scroll from an earlier visit.
-      // Only Back/Forward should restore it; a fresh page starts at its top/hash.
       savedPosition = null;
       await pageMounted;
     }
@@ -49,7 +62,7 @@ const router = createRouter({
       ScrollTrigger.refresh();
       const target = to.hash && document.getElementById(decodeURIComponent(to.hash.slice(1)));
       if (savedPosition) smoother.scrollTop(savedPosition.top);
-      else if (target) smoother.scrollTo(target, false, 'top 110px');
+      else if (target) smoother.scrollTo(target, true, 'top 110px');
       else smoother.scrollTop(0);
       return false;
     }

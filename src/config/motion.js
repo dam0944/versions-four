@@ -1,4 +1,3 @@
-/** GSAP timings are in seconds. Reduced-motion preferences always take priority. */
 export const motion = {
   smooth: 1.1,
   smoothTouch: 0.15,

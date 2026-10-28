@@ -1,17 +1,19 @@
 <script setup>
-import { useSimpleMotion } from '../../utils/performance.js';
+import { useSimpleMotion } from "../../utils/performance.js";
 
-import { ref, computed, inject, onMounted, onBeforeUnmount, nextTick, watch } from 'vue';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useRoute } from 'vue-router';
+import { ref, computed, inject, onMounted, onBeforeUnmount, nextTick, watch } from "vue";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRoute } from "vue-router";
+import { useI18n } from "vue-i18n";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const changeLanguage = inject('changeLanguage');
+const changeLanguage = inject("changeLanguage");
+const { t, locale } = useI18n();
 const route = useRoute();
 const menuOpen = ref(false);
-const overHero = computed(() => route.path === '/');
+const overHero = computed(() => route.path === "/");
 const isScrolled = ref(false);
 const headerRef = ref(null);
 const navRef = ref(null);
@@ -22,13 +24,13 @@ let activeLink;
 let blobVisible = false;
 
 const closeOnEscape = (event) => {
-  if (event.key === 'Escape') menuOpen.value = false;
+  if (event.key === "Escape") menuOpen.value = false;
 };
 
 const moveBlob = (event, force = false) => {
-  if (window.matchMedia('(max-width: 1100px)').matches) return;
+  if (window.matchMedia("(max-width: 1100px)").matches) return;
 
-  const link = event.target.closest?.('a');
+  const link = event.target.closest?.("a");
   const nav = navRef.value;
   const blob = blobRef.value;
 
@@ -57,8 +59,17 @@ const moveBlob = (event, force = false) => {
 
   if (reducedMotion) {
     gsap.set(blob, { x: targetX, y: targetY, width: targetWidth, height: targetHeight });
+  } else if (force) {
+    blobTween = gsap.to(blob, {
+      x: targetX,
+      y: targetY,
+      width: targetWidth,
+      height: targetHeight,
+      duration: 0.3,
+      ease: "power2.out",
+    });
   } else {
-    const currentX = Number(gsap.getProperty(blob, 'x')) || 0;
+    const currentX = Number(gsap.getProperty(blob, "x")) || 0;
     const distance = targetX - currentX;
     const stretch = Math.min(Math.abs(distance) * 0.18, 28);
 
@@ -70,13 +81,13 @@ const moveBlob = (event, force = false) => {
         width: targetWidth + stretch,
         height: targetHeight,
         duration: 0.2,
-        ease: 'power2.out',
+        ease: "power2.out",
       })
       .to(blob, {
         x: targetX,
         width: targetWidth,
         duration: 0.55,
-        ease: 'elastic.out(1, 0.55)',
+        ease: "elastic.out(1, 0.55)",
       });
   }
 
@@ -84,11 +95,11 @@ const moveBlob = (event, force = false) => {
 };
 
 const hideBlob = (event) => {
-  if (event.type === 'focusout' && navRef.value?.contains(event.relatedTarget)) return;
+  if (event.type === "focusout" && navRef.value?.contains(event.relatedTarget)) return;
 
-  const currentRouteLink = navRef.value?.querySelector('.router-link-exact-active');
+  const currentRouteLink = navRef.value?.querySelector(".router-link-exact-active");
   if (currentRouteLink) {
-    moveBlob({ target: currentRouteLink, type: 'route' });
+    moveBlob({ target: currentRouteLink, type: "route" });
     return;
   }
 
@@ -105,7 +116,7 @@ const hideBlob = (event) => {
     autoAlpha: 0,
     scale: 0.75,
     duration: 0.2,
-    ease: 'power2.out',
+    ease: "power2.out",
     onComplete: () => {
       blobVisible = false;
     },
@@ -117,9 +128,9 @@ const handleNavClick = (event) => {
   menuOpen.value = false;
 };
 
-const syncActiveRoute = () => {
-  const currentRouteLink = navRef.value?.querySelector('.router-link-exact-active');
-  if (currentRouteLink) moveBlob({ target: currentRouteLink, type: 'route' });
+const syncActiveRoute = (force = false) => {
+  const currentRouteLink = navRef.value?.querySelector(".router-link-exact-active");
+  if (currentRouteLink) moveBlob({ target: currentRouteLink, type: "route" }, force);
 };
 
 const syncScrollStyle = () => {
@@ -149,19 +160,24 @@ watch(
     await nextTick();
     syncActiveRoute();
     syncScrollStyle();
-  },
+  }
 );
 
+watch(locale, async () => {
+  await nextTick();
+  requestAnimationFrame(() => syncActiveRoute(true));
+});
+
 onMounted(() => {
-  document.addEventListener('keydown', closeOnEscape);
+  document.addEventListener("keydown", closeOnEscape);
   syncScrollStyle();
   requestAnimationFrame(syncActiveRoute);
 });
 onBeforeUnmount(() => {
-  document.removeEventListener('keydown', closeOnEscape);
+  document.removeEventListener("keydown", closeOnEscape);
   scrollTrigger?.kill();
   blobTween?.kill();
-  if (blobRef.value) gsap.set(blobRef.value, { clearProps: 'all' });
+  if (blobRef.value) gsap.set(blobRef.value, { clearProps: "all" });
 });
 </script>
 <template>
@@ -188,7 +204,7 @@ onBeforeUnmount(() => {
     </svg>
     <div class="in">
       <RouterLink class="brand" to="/"
-        ><img style="width: 50px" src="/logo.png" alt="Dharmasastra"
+        ><img style="width: 50px" src="/logo.png" :alt="t('header.logoAlt')"
       /></RouterLink>
       <nav
         ref="navRef"
@@ -197,19 +213,14 @@ onBeforeUnmount(() => {
         @focusin="moveBlob"
         @focusout="hideBlob"
         id="main-navigation"
-        aria-label="Main navigation"
+        :aria-label="t('header.navigationLabel')"
       >
         <span ref="blobRef" class="gooey-blob" aria-hidden="true"></span>
-        <RouterLink to="/"><span class="en">Home</span><span class="km">ទំព័រដើម</span></RouterLink>
-        <RouterLink to="/about"
-          ><span class="en">About Us</span><span class="km">អំពីយើង</span></RouterLink
-        >
-        <RouterLink to="/service"
-          ><span class="en">Service</span><span class="km">សេវាកម្ម</span></RouterLink
-        >
-        <RouterLink to="/contact"
-          ><span class="en">Contact Us</span><span class="km">ទំនាក់ទំនងយើង</span></RouterLink
-        >
+        <RouterLink to="/">{{ t("header.home") }}</RouterLink>
+        <RouterLink to="/about">{{ t("header.about") }}</RouterLink>
+        <RouterLink to="/team">{{ t("header.team") }}</RouterLink>
+        <RouterLink to="/results">{{ t("header.results") }}</RouterLink>
+        <RouterLink to="/resources">{{ t("header.newsResources") }}</RouterLink>
       </nav>
       <button
         class="menu-toggle"
@@ -218,7 +229,7 @@ onBeforeUnmount(() => {
         :aria-expanded="menuOpen"
         @click="menuOpen = !menuOpen"
       >
-        <span class="en">{{ menuOpen ? 'Close' : 'Menu' }}</span>
+        {{ menuOpen ? t("header.closeMenu") : t("header.openMenu") }}
         <span class="menu-icon" aria-hidden="true">
           <span></span>
           <span></span>
@@ -231,10 +242,9 @@ onBeforeUnmount(() => {
           ><span class="sep">|</span
           ><label for="l-km" @click.prevent="changeLanguage('km')">ខ្មែរ</label>
         </div>
-        <RouterLink class="reqbtn" to="/contact"
-          ><span class="en">Request an Appointment</span
-          ><span class="km">ស្នើសុំការណាត់ជួប</span></RouterLink
-        >
+        <RouterLink class="reqbtn" to="/contact">{{
+          t("header.appointment")
+        }}</RouterLink>
       </div>
     </div>
   </header>
@@ -251,10 +261,7 @@ onBeforeUnmount(() => {
   inset: 0 0 auto;
   border-bottom-color: transparent;
   background: transparent;
-  transition:
-    background-color 300ms ease,
-    border-color 300ms ease,
-    box-shadow 300ms ease;
+  transition: background-color 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
 }
 
 .top:not(.over-hero) {
@@ -349,9 +356,7 @@ onBeforeUnmount(() => {
   position: relative;
   z-index: 1;
   padding: 8px 12px;
-  transition:
-    color 240ms ease,
-    text-shadow 240ms ease;
+  transition: color 240ms ease, text-shadow 240ms ease;
 }
 
 .gooey-blob {
@@ -399,9 +404,7 @@ onBeforeUnmount(() => {
   border-radius: 2px;
   background: currentColor;
   transform-origin: center;
-  transition:
-    transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 180ms ease;
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1), opacity 180ms ease;
 }
 
 .menu-icon > span:first-child {
@@ -412,16 +415,16 @@ onBeforeUnmount(() => {
   transform: translateY(7px);
 }
 
-.menu-toggle[aria-expanded='true'] .menu-icon > span:first-child {
+.menu-toggle[aria-expanded="true"] .menu-icon > span:first-child {
   transform: rotate(45deg);
 }
 
-.menu-toggle[aria-expanded='true'] .menu-icon > span:nth-child(2) {
+.menu-toggle[aria-expanded="true"] .menu-icon > span:nth-child(2) {
   opacity: 0;
   transform: scaleX(0);
 }
 
-.menu-toggle[aria-expanded='true'] .menu-icon > span:last-child {
+.menu-toggle[aria-expanded="true"] .menu-icon > span:last-child {
   transform: rotate(-45deg);
 }
 

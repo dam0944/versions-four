@@ -32,7 +32,7 @@ const { ready, headerSpace } = usePageSmoother(language);
       value="km"
     />
 
-    <a class="skip-link" href="#main-content"> Skip to content · រំលងទៅមាតិកា </a>
+    <a class="skip-link" href="#main-content">{{ $t("accessibility.skipToContent") }}</a>
 
     <SiteHeader />
 

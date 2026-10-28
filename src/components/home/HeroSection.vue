@@ -1,14 +1,16 @@
 <script setup>
-import { enhancedMotionQuery } from '../../utils/performance.js';
+import { enhancedMotionQuery } from "../../utils/performance.js";
 
-import { ref, onMounted, onBeforeUnmount } from 'vue';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ref, onMounted, onBeforeUnmount } from "vue";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useI18n } from "vue-i18n";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const hero = ref(null);
 const background = ref(null);
+const { t } = useI18n();
 
 let media;
 const buttonCleanups = [];
@@ -25,35 +27,35 @@ onMounted(() => {
         {
           scale: 1,
           duration: 1.5,
-          ease: 'power2.out',
-        },
+          ease: "power2.out",
+        }
       );
 
       gsap.fromTo(
         background.value,
-        { clipPath: 'polygon(0% 0%, 0% 0%, -25% 100%, 0% 100%)' },
+        { clipPath: "polygon(0% 0%, 0% 0%, -25% 100%, 0% 100%)" },
         {
-          clipPath: 'polygon(0% 0%, 125% 0%, 100% 100%, 0% 100%)',
+          clipPath: "polygon(0% 0%, 125% 0%, 100% 100%, 0% 100%)",
           duration: 1.35,
-          ease: 'power3.inOut',
+          ease: "power3.inOut",
           scrollTrigger: {
             trigger: hero.value,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse',
+            start: "top 85%",
+            toggleActions: "play none none reverse",
           },
-        },
+        }
       );
 
-      gsap.from(hero.value.querySelectorAll('.eyebrow, h1, .sub'), {
+      gsap.from(hero.value.querySelectorAll(".eyebrow, h1, .sub"), {
         y: 24,
         opacity: 0,
         duration: 0.8,
         stagger: 0.1,
-        ease: 'power2.out',
-        clearProps: 'transform,opacity',
+        ease: "power2.out",
+        clearProps: "transform,opacity",
       });
 
-      const buttons = hero.value.querySelectorAll('.btns > a');
+      const buttons = hero.value.querySelectorAll(".btns > a");
       gsap.from(buttons, {
         y: 18,
         scale: 0.96,
@@ -61,8 +63,8 @@ onMounted(() => {
         duration: 0.65,
         delay: 0.25,
         stagger: 0.14,
-        ease: 'back.out(1.4)',
-        clearProps: 'transform,opacity',
+        ease: "back.out(1.4)",
+        clearProps: "transform,opacity",
       });
 
       buttons.forEach((button) => {
@@ -72,16 +74,16 @@ onMounted(() => {
             y: -3,
             scale: 1.025,
             duration: 0.2,
-            ease: 'power2.out',
-            overwrite: 'auto',
+            ease: "power2.out",
+            overwrite: "auto",
           });
           if (arrow) {
             gsap.to(arrow, {
               x: 4,
-              y: button.classList.contains('more') ? 2 : 0,
+              y: button.classList.contains("more") ? 2 : 0,
               duration: 0.2,
-              ease: 'power2.out',
-              overwrite: 'auto',
+              ease: "power2.out",
+              overwrite: "auto",
             });
           }
         };
@@ -90,29 +92,29 @@ onMounted(() => {
             y: 0,
             scale: 1,
             duration: 0.25,
-            ease: 'power2.out',
-            overwrite: 'auto',
+            ease: "power2.out",
+            overwrite: "auto",
           });
           if (arrow) {
             gsap.to(arrow, {
               x: 0,
               y: 0,
               duration: 0.25,
-              ease: 'power2.out',
-              overwrite: 'auto',
+              ease: "power2.out",
+              overwrite: "auto",
             });
           }
         };
 
-        button.addEventListener('pointerenter', animateIn);
-        button.addEventListener('pointerleave', animateOut);
-        button.addEventListener('focus', animateIn);
-        button.addEventListener('blur', animateOut);
+        button.addEventListener("pointerenter", animateIn);
+        button.addEventListener("pointerleave", animateOut);
+        button.addEventListener("focus", animateIn);
+        button.addEventListener("blur", animateOut);
         buttonCleanups.push(() => {
-          button.removeEventListener('pointerenter', animateIn);
-          button.removeEventListener('pointerleave', animateOut);
-          button.removeEventListener('focus', animateIn);
-          button.removeEventListener('blur', animateOut);
+          button.removeEventListener("pointerenter", animateIn);
+          button.removeEventListener("pointerleave", animateOut);
+          button.removeEventListener("focus", animateIn);
+          button.removeEventListener("blur", animateOut);
           gsap.killTweensOf(button);
           if (arrow) gsap.killTweensOf(arrow);
         });
@@ -120,16 +122,16 @@ onMounted(() => {
 
       gsap.to(background.value, {
         yPercent: 8,
-        ease: 'none',
+        ease: "none",
         scrollTrigger: {
           trigger: hero.value,
-          start: 'top top',
-          end: 'bottom top',
+          start: "top top",
+          end: "bottom top",
           scrub: true,
         },
       });
     },
-    hero.value,
+    hero.value
   );
 });
 
@@ -142,60 +144,28 @@ onBeforeUnmount(() => {
 
 <template>
   <section id="home" ref="hero" class="hero">
-    <!-- Existing full-width background -->
     <div ref="background" class="hero-background" aria-hidden="true"></div>
-
     <div class="hero-layout">
       <div class="hero-content">
-        <p class="eyebrow">
-          <span class="en">Phnom Penh · Kingdom of Cambodia</span>
-          <span class="km"> រាជធានីភ្នំពេញ · ព្រះរាជាណាចក្រកម្ពុជា </span>
-        </p>
-
-        <h1>
-          <span class="en">
-            Documents with certainty.
-            <em>Service with integrity.</em>
-          </span>
-
-          <span class="km">
-            ឯកសារដែលមានភាពច្បាស់លាស់
-            <em>សេវាកម្មប្រកបដោយសុចរិតភាព</em>
-          </span>
-        </h1>
-
-        <p class="sub">
-          <span class="en">
-            Notarial services, authentication and document verification, delivered with confidence
-            for individuals, businesses and institutions in Cambodia.
-          </span>
-
-          <span class="km">
-            សេវាសារការី ការបញ្ជាក់ភាពត្រឹមត្រូវ និងការផ្ទៀងផ្ទាត់ឯកសារ ប្រកបដោយទំនុកចិត្ត
-            សម្រាប់បុគ្គល អាជីវកម្ម និងស្ថាប័ននៅកម្ពុជា។
-          </span>
-        </p>
-
+        <p class="eyebrow">{{ t("hero.location") }}</p>
+        <h1>{{ t("hero.title") }}</h1>
+        <p class="sub">{{ t("hero.subtitle") }}</p>
         <div class="btns">
           <a class="go" href="#contact">
-            <span class="en">Book an Appointment</span>
-            <span class="km">ណាត់ជួបជាមួយយើង</span>
+            {{ t("hero.appointment") }}
             <span aria-hidden="true">→</span>
           </a>
-
           <a class="more" href="#services">
-            <span class="en">Explore Our Services</span>
-            <span class="km">ស្វែងយល់ពីសេវាកម្ម</span>
+            {{ t("hero.services") }}
             <span aria-hidden="true">↓</span>
           </a>
         </div>
       </div>
     </div>
-    <div class="side">
+    <!-- <div class="side">
       <small>01</small>
-      <span class="en">Authenticity, accuracy and trust</span>
-      <span class="km"> ភាពពិតប្រាកដ ភាពត្រឹមត្រូវ និងទំនុកចិត្ត </span>
-    </div>
+      {{ t("hero.promise") }}
+    </div> -->
   </section>
 </template>
 
@@ -232,15 +202,14 @@ onBeforeUnmount(() => {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background:
-    linear-gradient(
+  background: linear-gradient(
       90deg,
       rgba(8, 17, 27, 0.82) 0%,
       rgba(8, 17, 27, 0.68) 48%,
       rgba(8, 17, 27, 0.32) 100%
     ),
     linear-gradient(0deg, rgba(8, 17, 27, 0.48), transparent 46%);
-  content: '';
+  content: "";
   pointer-events: none;
 }
 
@@ -340,8 +309,8 @@ onBeforeUnmount(() => {
   outline-offset: 5px;
 }
 
-.hero .go [aria-hidden='true'],
-.hero .more [aria-hidden='true'] {
+.hero .go [aria-hidden="true"],
+.hero .more [aria-hidden="true"] {
   display: inline-block;
 }
 

@@ -13,7 +13,6 @@ export function useBackgroundReveal(section) {
     media = gsap.matchMedia();
     media.add(enhancedMotionQuery, () => {
       if (!section.value) return;
-      // Clip only the background layer; headings and controls stay readable.
       gsap.fromTo(
         section.value,
         { '--background-reveal-clip': 'polygon(0% 0%, 0% 0%, -25% 100%, 0% 100%)' },

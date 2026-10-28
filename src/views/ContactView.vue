@@ -1,28 +1,21 @@
 <script setup>
-import { provide } from 'vue';
-import ContactSection from '../components/shared/ContactSection.vue';
-import MapSection from '../components/shared/MapSection.vue';
-provide('disablePageAnimations', true);
+import { provide } from "vue";
+import { useI18n } from "vue-i18n";
+import ContactSection from "../components/shared/ContactSection.vue";
+import MapSection from "../components/shared/MapSection.vue";
+const { t } = useI18n();
+provide("disablePageAnimations", true);
 </script>
 
 <template>
   <div class="contact-page">
     <section class="contact-hero">
       <div class="hero-container">
-        <h1>
-          <span class="en">Contact Us</span>
-          <span class="km">ទាក់ទងយើង</span>
-        </h1>
+        <h1>{{ t("contact.page.title") }}</h1>
 
-        <p class="hero-lead">
-          <span class="en"> Let’s discuss your legal and notarial needs. </span>
-          <span class="km"> ពិភាក្សាជាមួយយើងអំពីតម្រូវការផ្នែកច្បាប់ និងសារការីរបស់លោកអ្នក។ </span>
-        </p>
+        <p class="hero-lead">{{ t("contact.page.lead") }}</p>
 
-        <p class="hero-description">
-          <span class="en"> Contact our office to ask a question or arrange an appointment. </span>
-          <span class="km"> សូមទាក់ទងការិយាល័យរបស់យើង ដើម្បីសាកសួរព័ត៌មាន ឬធ្វើការណាត់ជួប។ </span>
-        </p>
+        <p class="hero-description">{{ t("contact.page.description") }}</p>
       </div>
       <svg
         class="bottom-round-bg"
@@ -36,44 +29,34 @@ provide('disablePageAnimations', true);
     </section>
     <section class="contact-info">
       <div class="contact-info-container">
-        <!-- Address -->
         <div class="contact-info-item">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z" />
             <circle cx="12" cy="10" r="3" />
           </svg>
 
-          <h2>
-            <span class="en">Head Office</span>
-            <span class="km">ការិយាល័យកណ្តាល</span>
-          </h2>
-
+          <h2>{{ t("contact.page.headOffice") }}</h2>
           <p>
-            <span class="en">Your street address<br />Phnom Penh, Cambodia</span>
-            <span class="km">អាសយដ្ឋានការិយាល័យរបស់លោកអ្នក<br />ភ្នំពេញ កម្ពុជា</span>
+            {{ t("contact.page.addressLine1") }}<br />
+            {{ t("contact.page.addressLine2") }}
           </p>
         </div>
 
-        <!-- Email -->
         <div class="contact-info-item">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <rect x="2" y="4" width="20" height="16" rx="2" />
             <path d="m2 5 10 8L22 5" />
           </svg>
 
-          <h2>
-            <span class="en">Email Support</span>
-            <span class="km">ទំនាក់ទំនងតាមអ៊ីមែល</span>
-          </h2>
+          <h2>{{ t("contact.page.emailSupport") }}</h2>
 
           <p>
-            <a href="mailto:info@example.com">info@example.com</a>
+            <a href="s.sreng@bakc.org.kh">s.sreng@bakc.org.kh</a>
             <br />
             <a href="mailto:support@example.com">support@example.com</a>
           </p>
         </div>
 
-        <!-- Phone -->
         <div class="contact-info-item">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path
@@ -91,35 +74,24 @@ provide('disablePageAnimations', true);
             />
           </svg>
 
-          <h2>
-            <span class="en">Let’s Talk</span>
-            <span class="km">ទាក់ទងមកយើង</span>
-          </h2>
+          <h2>{{ t("contact.page.letsTalk") }}</h2>
 
           <p>
-            <span class="en">Phone: Your phone number</span>
-            <span class="km">ទូរស័ព្ទ៖ លេខទូរស័ព្ទរបស់លោកអ្នក</span>
+            {{ t("contact.page.phone", { numbers: "(+855)16 625 190 / 86 868 892" }) }}
             <br />
-            <span class="en">Telegram: Your username</span>
-            <span class="km">តេឡេក្រាម៖ ឈ្មោះអ្នកប្រើប្រាស់</span>
           </p>
         </div>
 
-        <!-- Hours -->
         <div class="contact-info-item">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="12" cy="12" r="10" />
             <path d="M12 6v6l4 3" />
           </svg>
 
-          <h2>
-            <span class="en">Office Hours</span>
-            <span class="km">ម៉ោងធ្វើការ</span>
-          </h2>
+          <h2>{{ t("contact.page.officeHours") }}</h2>
 
           <p>
-            <span class="en">Monday – Friday<br />8:00 AM – 5:00 PM</span>
-            <span class="km">ចន្ទ – សុក្រ<br />ម៉ោង ៨ ព្រឹក – ៥ ល្ងាច</span>
+            {{ t("contact.page.officeHoursValue") }}
           </p>
         </div>
       </div>
@@ -156,19 +128,18 @@ provide('disablePageAnimations', true);
   z-index: 999;
   display: block;
   width: 100%;
-  /* Keep a solid white strip below the curve to cover its antialiased edge. */
   height: 102px;
   pointer-events: none;
 }
 
 .contact-hero::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background-image:
-    linear-gradient(90deg, rgb(7 26 46 / 65%), rgb(7 26 46 / 20%)), url('/images/image.png');
+  background-image: linear-gradient(90deg, rgb(7 26 46 / 65%), rgb(7 26 46 / 20%)),
+    url("/images/image.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -181,7 +152,6 @@ provide('disablePageAnimations', true);
 }
 .contact-info {
   position: relative;
-  /* Cover the hero's fractional-pixel edge when smooth scrolling transforms it. */
   margin-top: -1px;
   padding: 80px 32px;
   background: #fff;
@@ -294,8 +264,8 @@ provide('disablePageAnimations', true);
   }
 
   .contact-hero::before {
-    background-image:
-      linear-gradient(rgb(7 26 46 / 78%), rgb(7 26 46 / 78%)), url('/images/image.png');
+    background-image: linear-gradient(rgb(7 26 46 / 78%), rgb(7 26 46 / 78%)),
+      url("/images/image.png");
   }
 
   .hero-description {

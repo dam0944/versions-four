@@ -1,31 +1,31 @@
 import { services } from '../data/contactServices.js';
-import { inject, reactive, ref, watch } from 'vue';
+import { reactive, ref, watch } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { office } from '../config/office.js';
 
 export function useContactForm() {
-  const language = inject('language');
+  const { t, locale } = useI18n();
 
-  const form = reactive({ name: '', email: '', service: services[0].en, description: '' });
+  const form = reactive({ name: '', email: '', service: services[0], description: '' });
   const status = ref('');
-  watch(language, () => {
+  watch(locale, () => {
     status.value = '';
   });
   function submitRequest() {
     if (!office.email) {
-      status.value =
-        language.value === 'km'
-          ? 'អ៊ីមែលការិយាល័យមិនទាន់បានកំណត់។ សំណើមិនត្រូវបានផ្ញើទេ។'
-          : 'The office email is not configured. No request was sent.';
+      status.value = t('contact.emailMissing');
       return;
     }
-    const body = `Name: ${form.name}\n\nEmail: ${form.email}\n\nService: ${form.service}\n\nDescription: ${form.description}`;
+    const body = [
+      `${t('contact.name')}: ${form.name}`,
+      `${t('contact.email')}: ${form.email}`,
+      `${t('contact.service')}: ${t(`contact.services.${services.indexOf(form.service)}`)}`,
+      `${t('contact.documents')}: ${form.description}`,
+    ].join('\n\n');
     window.location.href = `mailto:${encodeURIComponent(
       office.email,
-    )}?subject=${encodeURIComponent('Appointment request')}&body=${encodeURIComponent(body)}`;
-    status.value =
-      language.value === 'km'
-        ? 'សូមផ្ញើសំណើពីកម្មវិធីអ៊ីមែល ហើយរង់ចាំការបញ្ជាក់។'
-        : 'Please send the prepared email and wait for office confirmation.';
+    )}?subject=${encodeURIComponent(t('contact.emailSubject'))}&body=${encodeURIComponent(body)}`;
+    status.value = t('contact.emailReady');
   }
 
   return { services, form, status, submitRequest };

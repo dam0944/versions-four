@@ -1,41 +1,45 @@
 <script setup>
-import { areas } from '../../data/practiceAreas.js';
-import { enhancedMotionQuery } from '../../utils/performance.js';
+import { areas } from "../../data/practiceAreas.js";
+import { enhancedMotionQuery } from "../../utils/performance.js";
 
-import { onBeforeUnmount, onMounted, ref } from 'vue';
-import { gsap } from 'gsap';
-import { RouterLink } from 'vue-router';
+import { onBeforeUnmount, onMounted, ref } from "vue";
+import { gsap } from "gsap";
+import { RouterLink } from "vue-router";
+import { useI18n } from "vue-i18n";
 
 const cardGrid = ref(null);
+const { t } = useI18n();
 let media;
 
 onMounted(() => {
   media = gsap.matchMedia();
   media.add(enhancedMotionQuery, () => {
-    const cards = cardGrid.value.querySelectorAll('.practice__card');
+    const cards = cardGrid.value.querySelectorAll(".practice__card");
     const cleanups = [];
 
     cards.forEach((card) => {
-      const summary = card.querySelector('.practice__summary');
-      const icon = card.querySelector('.practice__icon');
+      const summary = card.querySelector(".practice__summary");
+      const icon = card.querySelector(".practice__icon");
       const animateCard = (active) => {
         gsap.to(card, {
           y: active ? -7 : 0,
-          backgroundColor: active ? '#ffffff' : '#14232c',
-          color: active ? '#14243a' : '#ffffff',
-          borderColor: active ? '#ffffff' : 'rgba(255, 255, 255, 0.16)',
-          boxShadow: active ? '0 18px 38px rgba(0, 0, 0, 0.22)' : '0 0 0 rgba(0, 0, 0, 0)',
+          backgroundColor: active ? "#ffffff" : "#14232c",
+          color: active ? "#14243a" : "#ffffff",
+          borderColor: active ? "#ffffff" : "rgba(255, 255, 255, 0.16)",
+          boxShadow: active
+            ? "0 18px 38px rgba(0, 0, 0, 0.22)"
+            : "0 0 0 rgba(0, 0, 0, 0)",
           duration: 0.42,
-          ease: 'power3.out',
-          overwrite: 'auto',
+          ease: "power3.out",
+          overwrite: "auto",
         });
 
         if (summary) {
           gsap.to(summary, {
-            color: active ? '#6c706f' : '#c1c9cf',
+            color: active ? "#6c706f" : "#c1c9cf",
             duration: 0.35,
-            ease: 'power2.out',
-            overwrite: 'auto',
+            ease: "power2.out",
+            overwrite: "auto",
           });
         }
 
@@ -45,39 +49,36 @@ onMounted(() => {
             rotate: active ? 6 : 0,
             scale: active ? 1.06 : 1,
             duration: 0.42,
-            ease: 'back.out(1.5)',
-            overwrite: 'auto',
+            ease: "back.out(1.5)",
+            overwrite: "auto",
           });
         }
       };
       const enter = () => animateCard(true);
       const leave = () => {
-        if (card.matches(':hover') || card.contains(document.activeElement)) return;
+        if (card.matches(":hover") || card.contains(document.activeElement)) return;
         animateCard(false);
       };
 
-      card.addEventListener('pointerenter', enter);
-      card.addEventListener('pointerleave', leave);
-      card.addEventListener('focus', enter);
-      card.addEventListener('blur', leave);
+      card.addEventListener("pointerenter", enter);
+      card.addEventListener("pointerleave", leave);
+      card.addEventListener("focus", enter);
+      card.addEventListener("blur", leave);
       cleanups.push(() => {
-        card.removeEventListener('pointerenter', enter);
-        card.removeEventListener('pointerleave', leave);
-        card.removeEventListener('focus', enter);
-        card.removeEventListener('blur', leave);
+        card.removeEventListener("pointerenter", enter);
+        card.removeEventListener("pointerleave", leave);
+        card.removeEventListener("focus", enter);
+        card.removeEventListener("blur", leave);
         gsap.killTweensOf(card);
         if (summary) gsap.killTweensOf(summary);
         if (icon) gsap.killTweensOf(icon);
       });
     });
-
     return () => cleanups.forEach((cleanup) => cleanup());
   });
 });
 
 onBeforeUnmount(() => media?.revert());
-
-// Change these links to your service detail routes when available.
 </script>
 
 <template>
@@ -86,28 +87,26 @@ onBeforeUnmount(() => media?.revert());
       <header class="practice__header">
         <div class="practice__intro">
           <div class="practice__label">
-            <span class="practice__number">04</span>
-            <span>PRACTICE AREAS</span>
+            <span class="practice__number">05</span>
+            <span>{{ t("practice.label") }}</span>
           </div>
-
-          <h2>វិស័យជំនាញរបស់យើង</h2>
-
-          <p class="practice__description">
-            យើងផ្តល់សេវាប្រឹក្សា និងជំនួយផ្នែកច្បាប់ ដើម្បីបំពេញតម្រូវការរបស់បុគ្គល និងអាជីវកម្ម។
-          </p>
+          <h2>{{ t("practice.title") }}</h2>
+          <p class="practice__description">{{ t("practice.description") }}</p>
         </div>
-
         <RouterLink to="/contact" class="practice__contact">
-          ទាក់ទងយើង
+          {{ t("practice.contact") }}
           <span aria-hidden="true">↗</span>
         </RouterLink>
       </header>
-
       <div ref="cardGrid" class="practice__grid">
-        <RouterLink v-for="area in areas" :key="area.id" :to="area.link" class="practice__card">
+        <RouterLink
+          v-for="area in areas"
+          :key="area.id"
+          :to="{ path: '/results', hash: `#practice-area-${area.id}` }"
+          class="practice__card"
+        >
           <div class="practice__card-top">
             <span class="practice__index">{{ area.id }}</span>
-
             <svg
               class="practice__icon"
               viewBox="0 0 24 24"
@@ -121,10 +120,10 @@ onBeforeUnmount(() => media?.revert());
               <path v-for="(path, index) in area.paths" :key="index" :d="path" />
             </svg>
           </div>
-
-          <h3>{{ area.title }}</h3>
-          <p class="practice__english">{{ area.english }}</p>
-          <p class="practice__summary">{{ area.description }}</p>
+          <h3>{{ t(`practice.items.${area.id}.title`) }}</h3>
+          <p class="practice__summary">
+            {{ t(`practice.items.${area.id}.description`) }}
+          </p>
         </RouterLink>
       </div>
     </div>
@@ -215,9 +214,7 @@ onBeforeUnmount(() => media?.revert());
   color: var(--navy);
   font-size: 14px;
   text-decoration: none;
-  transition:
-    background 180ms ease,
-    color 180ms ease;
+  transition: background 180ms ease, color 180ms ease;
 }
 
 .practice__contact:hover {

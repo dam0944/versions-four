@@ -1,0 +1,616 @@
+{
+  "nav": { "home": "Home", "services": "Services", "contact": "Contact" },
+  "areas": {
+    "01": {
+      "title": "Technology and Telecommunication",
+      "description": "Legal and regulatory advice for technology and telecom companies."
+    },
+    "02": {
+      "title": "Blockchain Technology",
+      "description": "Legal support for blockchain, digital assets and smart contracts."
+    }
+  },
+  "about": {
+    "index": "01",
+    "label": "About the Firm",
+    "eyebrow": "Law meets technology.",
+    "headline": "Where law meets technology, we build clear and adaptive legal solutions.",
+    "p1": "Juris Tech (JT) is a full-service legal window, specializing in emerging technology and supporting tech startup ecosystems.",
+    "p2": "We help MSMEs and industries adopt and transform with technology, delivering adaptive legal solutions in cyberspace.",
+    "mission": {
+      "title": "Mission",
+      "text": "To provide unprecedented legal services through the knowledge, experience and best practices of our lawyers, experts and advisors, working closely with government bodies and strategic partners to help our clients achieve their goals."
+    },
+    "vision": {
+      "title": "Vision",
+      "text": "To be a beacon of legal excellence and technological leadership, delivering high-quality, adaptive legal solutions in an atmosphere of teamwork, creativity and responsiveness."
+    }
+  },
+  "aboutPage": {
+    "introTitle": "About us",
+    "introLead": "Your Ultimate Destination for the Best Legal Aid Services.",
+    "trustStatement": "Trust Dharmasastra for Reliable Notarization Anytime, Anywhere",
+    "expertisePortraitAlt": "Law firm representative",
+    "socialLinkLabel": "{name} on {platform}",
+    "expertise": {
+      "who": "Who we are",
+      "dedicated": "Dedicated to your legal needs.",
+      "quote": "Clear advice, personal attention, and a commitment to protecting your interests.",
+      "intro": "We help individuals and businesses understand their legal options and move forward with confidence.",
+      "heading": "Our areas of legal expertise",
+      "description": "Practical guidance tailored to your circumstances, from personal matters to business requirements."
+    },
+    "team": {
+      "index": "01",
+      "eyebrow": "Meet our team",
+      "heading": "Working together to protect your interests.",
+      "role": "Lawyer"
+    },
+    "headline": "Result driven firm with combine advancing tech for all",
+    "description": "Juris Tech (JT) is a full-service legal window providing a wide range of legal services over various practices such as litigation, corporate law, real estate, and investment; and specializing in emerging technology, including FinTech, Blockchain, BigData, AI, and Cyber Security, and in supporting tech startups ecosystem building and mapping, tech adoption and transformation in MSMEs (Micro, Small, and Medium Enterprises) and Industries toward the industry 4.0 and digital economy and society. Our firm stands at the intersection of law and technology in providing adaptive legal solutions and disruptive services in cyber space.",
+    "mission": {
+      "title": "Our Mission",
+      "text": "To provide unprecedented legal services through the knowledges, experiences and best practices of our lawyers, experts, and advisors. We work closely, effectively, efficiently and collaboratively with government bodies and strategic partners to empower our clients to achieve their ultimate goals."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "text": "At JT, we strive to be a beacon of legal excellence, and advancing technological supremacy. Our vision is to deliver the highest-quality, adaptive legal solutions and disruptive services in an atmosphere that emphasizes teamwork, creativity, and responsiveness. We aim to set new benchmarks in combining the legal and the technology."
+    },
+    "values": {
+      "title": "Our Values",
+      "items": [
+        {
+          "title": "Trust",
+          "description": "We build and maintain trust by offering transparent and reliable legal representation to our clients."
+        },
+        {
+          "title": "Innovation",
+          "description": "Embracing innovation, we continually seek creative solutions to address the dynamic needs of our clients."
+        },
+        {
+          "title": "Collaboration",
+          "description": "Success at JT is rooted in collaboration. We work together internally and with external partners to provide comprehensive and effective legal services and successful tech transformation."
+        },
+        {
+          "title": "Adaptability",
+          "description": "We stay agile to meet the evolving needs of our clients in a rapidly changing legal and technological landscape."
+        },
+        {
+          "title": "Efficiency",
+          "description": "We strive to deliver timely and cost-effective solutions without compromising on quality."
+        },
+        {
+          "title": "Integrity",
+          "description": "We uphold the highest ethical standards in all our interactions and legal practices."
+        }
+      ]
+    }
+  },
+  "audience": {
+    "title": "Our services are better for",
+    "items": {
+      "msme": "MSMEs, Tech Startups",
+      "investors": "Investors",
+      "online": "Online Business",
+      "tech": "Tech Company",
+      "realestate": "Real Estate & Construction",
+      "ngo": "NGOs"
+    }
+  },
+  "accessibility": {
+    "skipToContent": "Skip to content"
+  },
+  "header": {
+    "navigationLabel": "Main navigation",
+    "logoAlt": "Dharmasastra",
+    "home": "Home",
+    "about": "About",
+    "team": "Our Team",
+    "results": "Results",
+    "newsResources": "News & Resources",
+    "openMenu": "Menu",
+    "closeMenu": "Close",
+    "appointment": "Request an Appointment"
+  },
+  "resultsPage": {
+    "title": "Case Results",
+    "intro": "Proven Legal Track Record",
+    "areasLink": "Areas of Practice",
+    "areasLabel": "Areas of practice",
+    "areasIntro": "We have been involved in leading, and as a supporting team, in establishing, implementing, monitoring and evaluating policies and regulations in telecommunications and information and communication technology (ICT), and Science, Technology and Innovation (STI), including:",
+    "areas": [
+      {
+        "id": "01",
+        "title": "Technology and Telecommunications",
+        "projects": [
+          "Telecom Infrastructures",
+          "Assessment on Telecommunication Coverage",
+          "Networking Lab",
+          "Quarantine Application",
+          "Broadband to School",
+          "Computer Lab"
+        ]
+      },
+      {
+        "id": "02",
+        "title": "Cybersecurity",
+        "projects": [
+          "Improving Incident Response Capability Through Security Operation Center-iCAPS"
+        ]
+      },
+      {
+        "id": "03",
+        "title": "Supporting Investors and Tech Startups",
+        "projects": [
+          "ICT Innovation Center",
+          "Technology Center",
+          "Seedstars Summit Asia 2019",
+          "Research Project: Cambodia’s Vibrant Tech Startup Ecosystem",
+          "School Management and Administration System",
+          "Cambodia ICT Volunteer Programs",
+          "Digital Literacy Programs",
+          "Scholarship Programs",
+          "Incubation Programs"
+        ]
+      },
+      {
+        "id": "04",
+        "title": "Fintech",
+        "projects": [
+          "Legal Compliance for Requesting License(s) to Enter into Fintech Regulatory Sandbox in the Securities Sector"
+        ]
+      },
+      {
+        "id": "05",
+        "title": "Reskilling and Upskilling",
+        "projects": [
+          "Assessment: Demand for and Supply of Digital Skills in Cambodia",
+          "Assessment: Innovation Investment Index 2023"
+        ]
+      },
+      {
+        "id": "06",
+        "title": "Real Estate and Construction",
+        "projects": [
+          "Feasibility Study on Cambodia-Korea SEZ",
+          "Reviewing, Drafting and Management: Sale and Purchase Agreements"
+        ]
+      },
+      {
+        "id": "07",
+        "title": "Industry, Investment and Mergers and Acquisitions (M&A)",
+        "projects": [
+          "Feasibility Study on the Relocation of Korean Factories to Cambodia",
+          "Qualified Investment Project",
+          "Incorporation and Licensing"
+        ]
+      },
+      {
+        "id": "08",
+        "title": "Legal Advisory and Consultancy",
+        "projects": [
+          "Law on Telecommunications",
+          "Sub-Decree on Mechanisms for Implementing Universal Service Obligations Program in Telecommunications",
+          "Sub-Decree on Mechanisms for Managing Capacity Building, Research, and Development in Telecommunications and ICT",
+          "Sub-Decree on Licensing of Operations in ICT",
+          "Sub-Decree on Digital Signature",
+          "Draft Law on Technology Transfer",
+          "Draft Sub-Decree on Spectrum Management"
+        ]
+      },
+      {
+        "id": "09",
+        "title": "Technology Transformation in MSMEs",
+        "projects": [
+          "Tech Startup and MSMEs Forums",
+          "SMEs Go Digital"
+        ]
+      },
+      {
+        "id": "10",
+        "title": "Commercial Contracts",
+        "projects": [
+          "Partnership Agreements",
+          "Franchise Agreements",
+          "Sale and Purchase Agreements",
+          "Joint Venture Agreements",
+          "Non-disclosure Agreements",
+          "Lease Agreements"
+        ]
+      },
+      {
+        "id": "11",
+        "title": "Business Establishment",
+        "projects": [
+          "Business Registration, Incorporation and M&A"
+        ]
+      },
+      {
+        "id": "12",
+        "title": "Public Policy",
+        "projects": [
+          "Telecom and ICT Development Policy 2020",
+          "Cambodia Financial Technology Development Policy 2023-2028"
+        ]
+      },
+      {
+        "id": "13",
+        "title": "Public Relations",
+        "projects": [
+          "Digital Cambodia Conference and Expo",
+          "Cambodia Tech Expo"
+        ]
+      }
+    ]
+  },
+  "resourcesPage": {
+    "title": "News & Resources",
+    "intro": "Updates, insights and practical resources on legal and technology matters.",
+    "libraryLabel": "Featured legal resources",
+    "imageAlt": "Resource document cover {number}",
+    "items": [
+      {
+        "id": "legal-library",
+        "kind": "khmer",
+        "title": "Laws and Regulations",
+        "description": "Selected Cambodian legal texts and regulatory guidance.",
+        "coverAlt": "Illustrated cream-colored cover for Cambodian laws and regulations",
+        "coverTitle": "ច្បាប់ និងបទប្បញ្ញត្តិ",
+        "brand": "KINGDOM OF CAMBODIA · NATION · RELIGION · KING",
+        "edition": "CAMBODIA"
+      },
+      {
+        "id": "e-commerce-law",
+        "kind": "law",
+        "title": "Law on Electronic Commerce",
+        "description": "Cambodia's legal framework for electronic commerce.",
+        "coverAlt": "Illustrated white cover of the Law on Electronic Commerce",
+        "coverTitle": "LAW ON ELECTRONIC COMMERCE",
+        "brand": "KINGDOM OF CAMBODIA · NATION · RELIGION · KING",
+        "edition": "LAW"
+      },
+      {
+        "id": "digital-policy",
+        "kind": "digital",
+        "title": "Digital Policy and Development",
+        "description": "A resource on Cambodia's digital transformation and development.",
+        "coverAlt": "Illustrated blue cover about digital policy and development",
+        "coverTitle": "គោលនយោបាយ និងការអភិវឌ្ឍឌីជីថល",
+        "brand": "KINGDOM OF CAMBODIA · NATION · RELIGION · KING",
+        "edition": "CAMBODIA · DIGITAL DEVELOPMENT"
+      }
+    ]
+  },
+  "footer": {
+    "brand": "DHARMASASTRA",
+    "brandSubtitle": "LAW GROUP",
+    "tagline": "Authenticity in every document",
+    "about": "About the Firm",
+    "services": "Services",
+    "notary": "Our Notary",
+    "contact": "Contact",
+    "copyright": "© 2026 Dharmasastra Law Group. All rights reserved."
+  },
+  "hero": {
+    "location": "Phnom Penh · Kingdom of Cambodia",
+    "title": "Welcome to Juris Tech",
+    "subtitle": "Your Legal Tech Partner for Business Success",
+    "appointment": "Book an Appointment",
+    "services": "Explore Our Services",
+    "promise": "Authenticity, accuracy and trust"
+  },
+  "services": {
+    "label": "OUR SERVICES",
+    "title": "Legal support for a changing business landscape",
+    "intro": "Practical legal services to help your business start, grow and adapt.",
+    "items": {
+      "licensing": {
+        "title": "Business licensing",
+        "desc": "Company registration, licensing and regulatory compliance support."
+      },
+      "contracts": {
+        "title": "Contracts",
+        "desc": "Drafting and review of agreements for your business relationships."
+      },
+      "tech": {
+        "title": "Technology law",
+        "desc": "Legal guidance for technology products, platforms and services."
+      },
+      "fintech": {
+        "title": "Fintech",
+        "desc": "Legal support for digital financial services and payment solutions."
+      },
+      "investment": {
+        "title": "Investment",
+        "desc": "Guidance for investors, transactions and business structuring."
+      },
+      "startups": {
+        "title": "Startups",
+        "desc": "Practical legal support for founders building new ventures."
+      }
+    }
+  },
+  "servicePage": {
+    "title": "Our Services",
+    "lead": "Professional guidance for your legal and notarial needs.",
+    "introEyebrow": "Our service",
+    "introTitle": "Professional and trusted lawyer services",
+    "quote": "We listen carefully, explain your options, and help you prepare for the next step.",
+    "introDescription": "From legal consultation to document preparation, our team provides practical support tailored to your personal and business needs.",
+    "portraitAlt": "Portrait of a team member",
+    "ribbon": "Protect Your Rights",
+    "listEyebrow": "What we do",
+    "listTitle": "Clear advice. Careful preparation.",
+    "listDescription": "Explore our services and contact our office to discuss your requirements.",
+    "enquire": "Enquire about this service"
+  },
+  "teamPage": {
+    "title": "Our Team",
+    "lead": "Working together to protect your interests."
+  },
+  "consultationBanner": {
+    "title": "Get the Legal Support You Deserve",
+    "subtitle": "Schedule Your Consultation Today",
+    "description": "Discuss your legal and notarial needs with our team. We’re here to help you understand your next steps.",
+    "button": "Book a Consultation"
+  },
+  "values": {
+    "statement": "Every important document deserves accuracy, authenticity and trust.",
+    "items": [
+      {
+        "title": "Integrity",
+        "description": "Service delivered with impartiality and ethical conduct."
+      },
+      {
+        "title": "Accuracy",
+        "description": "Careful verification and properly prepared documents."
+      },
+      {
+        "title": "Confidentiality",
+        "description": "Protecting your information and interests with respect."
+      }
+    ]
+  },
+  "president": {
+    "index": "03",
+    "label": "OUR PRESIDENT",
+    "name": "PIN VANNAK",
+    "title": "President",
+    "description": "As President, we assume overall legal leadership and strategic decision-making in full compliance with applicable laws[cite: 2]. Our office provides comprehensive governance oversight, legal representation, and policy direction to ensure operational integrity and organizational growth from planning to implementation[cite: 2].",
+    "services": [
+      "Legal Representation",
+      "Regulatory Compliance",
+      "Policy Formulation",
+      "Risk Management"
+    ],
+    "portraitAlt": "Portrait of the president"
+  },
+  "testimonials": {
+    "index": "04",
+    "label": "Client testimonials",
+    "title": "What our clients say",
+    "description": "Personal experiences with our service and support.",
+    "regionLabel": "Client testimonials",
+    "clientLabel": "Client",
+    "items": [
+      {
+        "name": "Kim Suchat",
+        "quote": "The legal and tech advisory was clear and helped our business run smoothly."
+      },
+      {
+        "name": "Heng Vathana",
+        "quote": "Prompt service with high professional standards and great reliability."
+      },
+      {
+        "name": "Meng Lida",
+        "quote": "The team excels in both technology and law, providing flawless guidance."
+      },
+      {
+        "name": "Chan Rasmey",
+        "quote": "Helped streamline all our business registration and documentation wonderfully."
+      },
+      {
+        "name": "Seng Hak",
+        "quote": "A dependable legal partner for both local and international operations."
+      }
+    ]
+  },
+  "process": {
+    "label": "How It Works",
+    "title": "Four steps to get started",
+    "steps": [
+      {
+        "title": "Contact the office",
+        "description": "Describe the service you need."
+      },
+      {
+        "title": "We confirm details",
+        "description": "Required documents, fees and availability."
+      },
+      {
+        "title": "Attend your appointment",
+        "description": "Bring the requested documents."
+      },
+      {
+        "title": "Receive your documents",
+        "description": "According to the agreed process."
+      }
+    ]
+  },
+  "faq": {
+    "title": "Why Choose Us?",
+    "intro": "At Juris Tech, we're not just your legal advisors; we're your long-term partners innovating at the complex intersection of law, technology, and public relations. Choose us for adaptive, innovative, efficient and effective solutions tailored to cyberspace.",
+    "items": [
+      {
+        "title": "Technology Focus",
+        "description": "We specialize in the unique legal challenges faced by technology-driven businesses and startups."
+      },
+      {
+        "title": "Innovative Approach",
+        "description": "We combine legal expertise with technological understanding to provide forward-thinking solutions."
+      },
+      {
+        "title": "Collaborative Network",
+        "description": "We work closely with government bodies and strategic partners, offering our clients a broader support network."
+      },
+      {
+        "title": "Result-Driven",
+        "description": "As our slogan says, “Result driven with combined advancing tech for all.”"
+      },
+      {
+        "title": "Comprehensive Services",
+        "description": "From physical space to cyberspace and from business establishment to cybersecurity and public relations, we offer a wide range of services under one roof."
+      },
+      {
+        "title": "Client-Centric",
+        "description": "Our services are tailored to meet the specific needs of tech startups, MSMEs, industries and investors."
+      },
+      {
+        "title": "Experienced Team",
+        "description": "Our lawyers and advisors bring deep knowledge, experience and best practices in legal, technological and public relations domains."
+      },
+      {
+        "title": "Local Expertise, Global Perspective",
+        "description": "While rooted in Cambodia, we bring a global perspective to our legal and public relations services."
+      }
+    ],
+    "imageAlt": "Golden scales of justice"
+  },
+  "practice": {
+    "label": "OUR AREAS OF PRACTICE",
+    "title": "Our areas of expertise",
+    "description": "We provide legal advice and support to meet the needs of individuals and businesses.",
+    "contact": "Contact us",
+    "items": {
+      "01": {
+        "title": "Technology and Telecommunication",
+        "description": "Legal and regulatory advice for technology and telecom companies."
+      },
+      "02": {
+        "title": "Blockchain Technology",
+        "description": "Legal support for blockchain, digital assets and smart contracts."
+      },
+      "03": {
+        "title": "Supporting Investors and Tech Startups",
+        "description": "Legal advice, structuring and support for investors and startup founders."
+      },
+      "04": {
+        "title": "Cybersecurity",
+        "description": "Advice on legal compliance, data protection and cybersecurity risk management."
+      },
+      "05": {
+        "title": "Fintech",
+        "description": "Legal support for digital financial services, payments and related licensing."
+      },
+      "06": {
+        "title": "Reskilling and Upskilling",
+        "description": "Training and skills development programmes for employees and businesses."
+      },
+      "07": {
+        "title": "Real Estate and Construction",
+        "description": "Legal support for property sales, leases, real estate and construction projects."
+      },
+      "08": {
+        "title": "Industry, Investment and Mergers and Acquisitions (M&A)",
+        "description": "Advice on investment, due diligence and mergers or acquisitions."
+      },
+      "09": {
+        "title": "Legal Advisory and Consultancy",
+        "description": "Legal advice to protect your interests and reduce your risks."
+      },
+      "10": {
+        "title": "Facilitating Business Online",
+        "description": "Support for taking your business online, including terms and legal compliance."
+      },
+      "11": {
+        "title": "Technology Transformation in MSMEs",
+        "description": "Support for small and medium enterprises adopting and using digital technology."
+      },
+      "12": {
+        "title": "Commercial Contracts",
+        "description": "Drafting and review of contracts, and negotiation of terms to protect your interests."
+      },
+      "13": {
+        "title": "Business Establishment and Licensing",
+        "description": "Support with company registration and applications for required licences or permits."
+      },
+      "14": {
+        "title": "Public Policy",
+        "description": "Analysis and advice on policies and regulations affecting business sectors."
+      },
+      "15": {
+        "title": "Public Relations",
+        "description": "Support for reputation management, communications and public relations."
+      }
+    }
+  },
+  "prepare": {
+    "label": "Before Your Visit",
+    "title": "Prepare for your appointment",
+    "intro": "A little preparation helps us understand your needs. Contact the office first to confirm which documents and arrangements apply to your service.",
+    "button": "Ask About Your Documents",
+    "steps": [
+      {
+        "title": "Explain the purpose",
+        "description": "Tell us what type of document you have and where it will be used, so we can discuss the appropriate next steps."
+      },
+      {
+        "title": "Confirm what to bring",
+        "description": "Ask the office whether originals, copies, identification or supporting documents are needed for your particular request."
+      },
+      {
+        "title": "Check the appointment details",
+        "description": "Confirm the time, office location, who should attend and any fees discussed before your visit."
+      }
+    ]
+  },
+  "contact": {
+    "label": "CONTACT",
+    "title": "Let us discuss what you need",
+    "intro": "Tell us about the document you need notarised or certified. Our office will reply to confirm your requirements and arrange a time.",
+    "officeLabel": "Office",
+    "location": "Phnom Penh, Kingdom of Cambodia",
+    "appointmentOnly": "By appointment",
+    "name": "Full name",
+    "namePlaceholder": "Your full name",
+    "email": "Email address",
+    "service": "Service required",
+    "services": [
+      "Signature and Document Notarisation",
+      "Certified True Copies",
+      "Affidavits and Statutory Declarations",
+      "Corporate Notarial Services",
+      "Property and Family Documents",
+      "International Document Support"
+    ],
+    "documents": "What documents do you have?",
+    "documentsPlaceholder": "Briefly describe your documents and their purpose",
+    "submit": "Prepare Appointment Request",
+    "privacyNote": "Once the office email is configured, this form opens your email application. Please send the prepared email; the office will confirm the appointment. Do not include confidential information.",
+    "privacyPolicy": "Privacy policy to be added",
+    "emailMissing": "The office email is not configured. No request was sent.",
+    "emailReady": "Please send the prepared email and wait for office confirmation.",
+    "emailSubject": "Appointment request",
+    "page": {
+      "title": "Contact Us",
+      "lead": "Let’s discuss your legal and notarial needs.",
+      "description": "Contact our office to ask a question or arrange an appointment.",
+      "headOffice": "Head Office",
+      "addressLine1": "Your street address",
+      "addressLine2": "Building De Castle Royal, Boeng Keng Kang, Phnom Penh",
+      "emailSupport": "Email Support",
+      "letsTalk": "Let’s Talk",
+      "phone": "Phone: {numbers}",
+      "officeHours": "Office Hours",
+      "officeHoursValue": "8:30 AM – 5:30 PM"
+    }
+  },
+  "map": {
+    "label": "Office Location",
+    "title": "Visit Our Office",
+    "address": "Address: Building De Castle Royal, Boeng Keng Kang, Phnom Penh, Cambodia",
+    "hours": "Opening Hours and Appointment Requirements: 8:30 AM – 5:30 PM",
+    "directions": "Get Directions",
+    "frameTitle": "Map of Phnom Penh, Cambodia"
+  }
+}

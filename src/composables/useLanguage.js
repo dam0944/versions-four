@@ -3,10 +3,11 @@ import { useRoute } from 'vue-router';
 import { gsap } from 'gsap';
 import { useSimpleMotion } from '../utils/performance.js';
 import { site } from '../config/site.js';
+import { i18n } from '../i18n.js';
 
 /** Provide the shared language and update the document language accessibly. */
 export function useLanguage() {
-  const language = ref(site.defaultLanguage);
+  const language = ref(i18n.global.locale.value || site.defaultLanguage);
   const route = useRoute();
 
   provide('language', language);
@@ -15,13 +16,19 @@ export function useLanguage() {
   let pendingLanguage = language.value;
 
   function changeLanguage(nextLanguage) {
-    if (nextLanguage === pendingLanguage) return;
+    if (!['en', 'km'].includes(nextLanguage) || nextLanguage === pendingLanguage) return;
     pendingLanguage = nextLanguage;
     languageTween?.kill();
     const targets = document.querySelectorAll('#app .top, #main-content, #smooth-content > footer');
 
-    if (route.path !== '/' || useSimpleMotion()) {
+    function applyLanguage() {
       language.value = nextLanguage;
+      i18n.global.locale.value = nextLanguage;
+      localStorage.setItem('lang', nextLanguage);
+    }
+
+    if (route.path !== '/' || useSimpleMotion()) {
+      applyLanguage();
       gsap.set(targets, { clearProps: 'opacity' });
       return;
     }
@@ -29,9 +36,7 @@ export function useLanguage() {
     languageTween = gsap
       .timeline()
       .to(targets, { opacity: 0, duration: 0.12, ease: 'power1.out' })
-      .call(() => {
-        language.value = nextLanguage;
-      })
+      .call(applyLanguage)
       .to(targets, {
         opacity: 1,
         duration: 0.24,

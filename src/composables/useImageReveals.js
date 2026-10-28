@@ -40,7 +40,7 @@ export function useImageReveals(page, selector = 'img') {
               },
             },
           );
-          // Keyboard navigation must never land on a still-clipped card link.
+          // keyboard navigation must never land on a still-clipped card link.
           const showOnFocus = () => {
             tween.scrollTrigger?.kill();
             tween.progress(1);

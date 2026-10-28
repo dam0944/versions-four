@@ -1,14 +1,16 @@
 <script setup>
-import { enhancedMotionQuery } from '../../utils/performance.js';
+import { enhancedMotionQuery } from "../../utils/performance.js";
 
-import { onBeforeUnmount, onMounted, ref } from 'vue';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { onBeforeUnmount, onMounted, ref } from "vue";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useI18n } from "vue-i18n";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const contentRef = ref(null);
 const photoRef = ref(null);
+const { t } = useI18n();
 let media;
 
 onMounted(() => {
@@ -25,13 +27,13 @@ onMounted(() => {
         opacity: 1,
         y: 0,
         duration: 1.1,
-        ease: 'power3.out',
+        ease: "power3.out",
         scrollTrigger: {
           trigger: contentRef.value,
-          start: 'top 82%',
+          start: "top 82%",
           once: true,
         },
-      },
+      }
     );
 
     gsap.fromTo(
@@ -39,27 +41,26 @@ onMounted(() => {
       {
         opacity: 0,
         y: 54,
-        clipPath: 'polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)',
+        clipPath: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
       },
       {
         opacity: 1,
         y: 0,
-        clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
         duration: 1.4,
-        ease: 'power3.inOut',
+        ease: "power3.inOut",
         scrollTrigger: {
           trigger: photoRef.value,
-          start: 'top 82%',
+          start: "top 82%",
           once: true,
         },
-      },
+      }
     );
   });
 });
 
 onBeforeUnmount(() => {
   media?.revert();
-  ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 });
 </script>
 
@@ -67,46 +68,16 @@ onBeforeUnmount(() => {
   <section id="notary" class="notary-section">
     <div class="notary-container">
       <div ref="contentRef" class="notary-content">
-        <div class="tag">
-          <b>03</b>
-          <span class="en">OUR NOTARY</span>
-          <span class="km">សារការីរបស់យើង</span>
+        <div class="notary-section__tag">
+          <b>{{ t("president.index") }}</b>
+          <span class="notary-section__tag-label">{{ t("president.label") }}</span>
         </div>
-        <h2>
-          <span class="en">Khorn Sokheng</span>
-          <span class="km">ខន សុខេង</span>
-        </h2>
-
-        <p class="notary-description">
-          <span class="en">
-            With experience across law, public policy, banking, business and information systems,
-            Mr. Sokheng provides attentive support for personal and commercial documents.
-          </span>
-          <span class="km">
-            ដោយមានបទពិសោធន៍លើវិស័យច្បាប់ គោលនយោបាយសាធារណៈ ធនាគារ អាជីវកម្ម និងប្រព័ន្ធព័ត៌មាន លោក
-            សុខេង ផ្តល់ការគាំទ្រដោយយកចិត្តទុកដាក់លើឯកសារផ្ទាល់ខ្លួន និងពាណិជ្ជកម្ម។
-          </span>
-        </p>
+        <h2>{{ t("president.name") }}</h2>
+        <p class="notary-description">{{ t("president.description") }}</p>
 
         <ul class="notary-services">
-          <li>
-            <span class="en">Notarisation</span>
-            <span class="km">ការធ្វើសារការី</span>
-          </li>
-
-          <li>
-            <span class="en">Document Certification</span>
-            <span class="km">ការបញ្ជាក់ឯកសារ</span>
-          </li>
-
-          <li>
-            <span class="en">Corporate Documents</span>
-            <span class="km">ឯកសារក្រុមហ៊ុន</span>
-          </li>
-
-          <li>
-            <span class="en">International Documents</span>
-            <span class="km">ឯកសារអន្តរជាតិ</span>
+          <li v-for="index in [0, 1, 2, 3]" :key="index">
+            {{ t(`president.services.${index}`) }}
           </li>
         </ul>
       </div>
@@ -115,7 +86,7 @@ onBeforeUnmount(() => {
         <img
           decoding="async"
           src="/images/website-3.jpeg"
-          alt="Portrait of the notary"
+          :alt="t('president.portraitAlt')"
           loading="lazy"
         />
       </div>
@@ -138,27 +109,28 @@ onBeforeUnmount(() => {
   margin-inline: auto;
 }
 
-.tag {
+.notary-section__tag {
   display: flex;
   align-items: center;
   gap: 18px;
   margin-bottom: 24px;
 }
 
-.tag b {
+.notary-section__tag b {
   color: #b8893a;
   font-family: var(--font-latin);
   font-size: 13px;
   font-weight: 800;
 }
 
-.tag .km {
+.notary-section__tag .km {
   color: #16233a;
   font-family: var(--font-khmer-title);
   font-size: 13px;
   font-weight: 400;
   line-height: 2;
 }
+
 .notary-content {
   min-width: 0;
   max-width: 650px;
@@ -181,13 +153,6 @@ onBeforeUnmount(() => {
   border-right: 1px solid var(--color-accent-light);
   font-size: 12px;
   font-weight: 500;
-}
-
-.notary-role {
-  margin: 0 0 12px;
-  color: #8b6b34;
-  font-size: 15px;
-  line-height: 1.8;
 }
 
 .notary-content h2 {
@@ -226,7 +191,7 @@ onBeforeUnmount(() => {
 }
 
 .notary-services li::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0.75em;
   left: 0;
@@ -250,7 +215,7 @@ onBeforeUnmount(() => {
 
 /* Offset gold panel behind the portrait. */
 .notary-photo::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: 0;

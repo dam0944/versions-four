@@ -1,8 +1,10 @@
 <script setup>
-import { ref } from 'vue';
-import { useBackgroundReveal } from '../../composables/useBackgroundReveal.js';
-import { RouterLink } from 'vue-router';
+import { ref } from "vue";
+import { useBackgroundReveal } from "../../composables/useBackgroundReveal.js";
+import { RouterLink } from "vue-router";
+import { useI18n } from "vue-i18n";
 const backgroundSection = ref(null);
+const { t } = useI18n();
 useBackgroundReveal(backgroundSection);
 </script>
 
@@ -10,32 +12,14 @@ useBackgroundReveal(backgroundSection);
   <section ref="backgroundSection" class="consultation-section">
     <div class="consultation-container">
       <h2>
-        <span class="en">
-          Get the Legal Support You Deserve
-          <span class="heading-line">Schedule Your Consultation Today</span>
-        </span>
-
-        <span class="km">
-          ទទួលបានការគាំទ្រផ្នែកច្បាប់ដែលលោកអ្នកត្រូវការ
-          <span class="heading-line">ណាត់ជួបពិគ្រោះយោបល់ជាមួយយើងថ្ងៃនេះ</span>
-        </span>
+        {{ t("consultationBanner.title") }}
+        <span class="heading-line">{{ t("consultationBanner.subtitle") }}</span>
       </h2>
 
-      <p>
-        <span class="en">
-          Discuss your legal and notarial needs with our team. We’re here to help you understand
-          your next steps.
-        </span>
-
-        <span class="km">
-          ពិភាក្សាអំពីតម្រូវការផ្នែកច្បាប់ និងសារការីជាមួយក្រុមការងាររបស់យើង។
-          យើងនៅទីនេះដើម្បីជួយលោកអ្នកស្វែងយល់ពីជំហានបន្ទាប់។
-        </span>
-      </p>
+      <p>{{ t("consultationBanner.description") }}</p>
 
       <RouterLink class="consultation-button" to="/contact">
-        <span class="en">Book a Consultation</span>
-        <span class="km">ណាត់ជួបពិគ្រោះយោបល់</span>
+        {{ t("consultationBanner.button") }}
         <span aria-hidden="true">→</span>
       </RouterLink>
     </div>
@@ -59,14 +43,14 @@ useBackgroundReveal(backgroundSection);
 }
 
 .consultation-section::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
   clip-path: var(--background-reveal-clip, polygon(0 0, 100% 0, 100% 100%, 0 100%));
-  background-image:
-    linear-gradient(rgb(7 18 30 / 72%), rgb(7 18 30 / 72%)), url('/images/images.png');
+  background-image: linear-gradient(rgb(7 18 30 / 72%), rgb(7 18 30 / 72%)),
+    url("/images/images.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

@@ -1,131 +1,71 @@
 <script setup>
-import { services } from '../data/services.js';
-import { provide, ref } from 'vue';
-import { useImageReveals } from '../composables/useImageReveals.js';
-import { RouterLink } from 'vue-router';
-import ConsultationSection from '../components/shared/ConsultationSection.vue';
-provide('disablePageAnimations', true);
+import { services } from "../data/services.js";
+import { provide, ref } from "vue";
+import { useI18n } from "vue-i18n";
+import { useImageReveals } from "../composables/useImageReveals.js";
+import { RouterLink } from "vue-router";
+import ConsultationSection from "../components/shared/ConsultationSection.vue";
+const { t, locale } = useI18n();
+provide("disablePageAnimations", true);
 const page = ref(null);
-useImageReveals(page, '.service-card');
+useImageReveals(page, ".service-card");
 </script>
 
 <template>
   <div ref="page" class="services-page">
-    <!-- Hero -->
     <section class="services-hero">
       <div class="hero-container">
-        <h1>
-          <span class="en">Our Services</span>
-          <span class="km">សេវាកម្មរបស់យើង</span>
-        </h1>
-
-        <p class="hero-lead">
-          <span class="en"> Professional guidance for your legal and notarial needs. </span>
-          <span class="km">
-            ការណែនាំប្រកបដោយវិជ្ជាជីវៈ សម្រាប់តម្រូវការផ្នែកច្បាប់ និងសារការីរបស់លោកអ្នក។
-          </span>
-        </p>
+        <h1>{{ t("servicePage.title") }}</h1>
+        <p class="hero-lead">{{ t("servicePage.lead") }}</p>
       </div>
-
       <div class="bottom-round-bg" aria-hidden="true"></div>
     </section>
-    <!-- Service introduction -->
     <section class="service-intro">
       <div class="services-container service-intro-grid">
         <div class="service-intro-content">
-          <p class="eyebrow">
-            <span class="en">Our service</span>
-            <span class="km">សេវាកម្មរបស់យើង</span>
-          </p>
-
-          <h2>
-            <span class="en"> Professional and trusted lawyer services </span>
-            <span class="km"> សេវាកម្មមេធាវីប្រកបដោយវិជ្ជាជីវៈ និងទំនុកចិត្ត </span>
-          </h2>
-
-          <blockquote>
-            <span class="en">
-              We listen carefully, explain your options, and help you prepare for the next step.
-            </span>
-            <span class="km">
-              យើងស្តាប់ដោយយកចិត្តទុកដាក់ ពន្យល់ពីជម្រើសរបស់លោកអ្នក និងជួយរៀបចំសម្រាប់ជំហានបន្ទាប់។
-            </span>
-          </blockquote>
-
-          <p class="service-intro-description">
-            <span class="en">
-              From legal consultation to document preparation, our team provides practical support
-              tailored to your personal and business needs.
-            </span>
-            <span class="km">
-              ចាប់ពីការប្រឹក្សាផ្នែកច្បាប់រហូតដល់ការរៀបចំឯកសារ
-              ក្រុមការងាររបស់យើងផ្តល់ជំនួយសមស្របតាមតម្រូវការផ្ទាល់ខ្លួន និងអាជីវកម្មរបស់លោកអ្នក។
-            </span>
-          </p>
+          <p class="eyebrow">{{ t("servicePage.introEyebrow") }}</p>
+          <h2>{{ t("servicePage.introTitle") }}</h2>
+          <blockquote>{{ t("servicePage.quote") }}</blockquote>
+          <p class="service-intro-description">{{ t("servicePage.introDescription") }}</p>
         </div>
-
         <div class="reveal-trigger">
           <div class="service-intro-visual">
             <img
               decoding="async"
               src="/images/team-1.png"
-              alt="Portrait of a team member"
+              :alt="t('servicePage.portraitAlt')"
               loading="lazy"
             />
 
             <div class="service-intro-ribbon">
-              <span class="en">Protect Your Rights</span>
-              <span class="km">ការពារសិទ្ធិរបស់លោកអ្នក</span>
+              {{ t("servicePage.ribbon") }}
             </div>
           </div>
         </div>
       </div>
     </section>
     <ConsultationSection />
-    <!-- Services -->
     <section class="services-section">
       <div class="services-container">
         <header class="section-heading">
-          <p class="eyebrow">
-            <span class="en">What we do</span>
-            <span class="km">អ្វីដែលយើងផ្តល់ជូន</span>
-          </p>
-
-          <h2>
-            <span class="en">Clear advice. Careful preparation.</span>
-            <span class="km"> ការប្រឹក្សាច្បាស់លាស់ និងការរៀបចំយ៉ាងយកចិត្តទុកដាក់។ </span>
-          </h2>
-
-          <p class="section-description">
-            <span class="en">
-              Explore our services and contact our office to discuss your requirements.
-            </span>
-            <span class="km">
-              ស្វែងយល់អំពីសេវាកម្មរបស់យើង និងទាក់ទងការិយាល័យ ដើម្បីពិភាក្សាអំពីតម្រូវការរបស់លោកអ្នក។
-            </span>
-          </p>
+          <p class="eyebrow">{{ t("servicePage.listEyebrow") }}</p>
+          <h2>{{ t("servicePage.listTitle") }}</h2>
+          <p class="section-description">{{ t("servicePage.listDescription") }}</p>
         </header>
-
         <div class="services-grid">
           <div v-for="service in services" :key="service.number" class="reveal-trigger">
             <article class="service-card">
               <span class="service-number" aria-hidden="true">
                 {{ service.number }}
               </span>
-
               <h3>
-                <span class="en">{{ service.en }}</span>
-                <span class="km">{{ service.km }}</span>
+                {{ locale === "km" ? service.km : service.en }}
               </h3>
-
               <p>
-                <span class="en">{{ service.descriptionEn }}</span>
-                <span class="km">{{ service.descriptionKm }}</span>
+                {{ locale === "km" ? service.descriptionKm : service.descriptionEn }}
               </p>
-
               <RouterLink class="service-link" to="/contact">
-                <span class="en">Enquire about this service</span>
-                <span class="km">សាកសួរអំពីសេវានេះ</span>
+                {{ t("servicePage.enquire") }}
                 <span aria-hidden="true">→</span>
               </RouterLink>
             </article>
@@ -172,7 +112,7 @@ useImageReveals(page, '.service-card');
   z-index: 999;
   height: 100px;
   margin-bottom: -2px;
-  background-image: url('/images/round-bottom-bg.svg');
+  background-image: url("/images/round-bottom-bg.svg");
   background-position: 50% 100%;
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -180,13 +120,13 @@ useImageReveals(page, '.service-card');
 }
 
 .services-hero::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background-image:
-    linear-gradient(90deg, rgb(7 26 46 / 65%), rgb(7 26 46 / 10%)), url('/images/image.png');
+  background-image: linear-gradient(90deg, rgb(7 26 46 / 65%), rgb(7 26 46 / 10%)),
+    url("/images/image.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -246,7 +186,7 @@ useImageReveals(page, '.service-card');
 
 /* Gold panel behind the portrait. */
 .service-intro-visual::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
@@ -493,8 +433,8 @@ useImageReveals(page, '.service-card');
   }
 
   .services-hero::before {
-    background-image:
-      linear-gradient(rgb(7 26 46 / 75%), rgb(7 26 46 / 75%)), url('/images/image.png');
+    background-image: linear-gradient(rgb(7 26 46 / 75%), rgb(7 26 46 / 75%)),
+      url("/images/image.png");
   }
 
   .services-section,

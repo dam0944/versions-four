@@ -1,10 +1,15 @@
 <script setup>
 import { provide, ref } from "vue";
+import { useI18n } from "vue-i18n";
 import { useImageReveals } from "../composables/useImageReveals.js";
 import ExpertiseSection from "../components/about/ExpertiseSection.vue";
+// import AboutOverview from "../components/about/AboutOverview.vue";
+// import AboutValues from "../components/about/AboutValues.vue";
+// import PracticeAreas from "../components/home/PracticeAreas.vue";
 import TeamSection from "../components/about/TeamSection.vue";
-import AboutOverview from "../components/about/AboutOverview.vue";
+import FirmSection from "../components/home/FirmSection.vue";
 provide("disablePageAnimations", true);
+const { t } = useI18n();
 const page = ref(null);
 useImageReveals(page);
 </script>
@@ -13,26 +18,13 @@ useImageReveals(page);
   <div ref="page" class="about-page">
     <section class="about-intro">
       <div class="in">
-        <h1>
-          <span class="en">About us</span>
-          <span class="km">អំពីយើង</span>
-        </h1>
-
-        <p class="lead">
-          <span class="en">
-            Your Ultimate Destination for the Best Legal Aid Services.
-          </span>
-
-          <span class="km">
-            ជម្រើសដ៏ល្អបំផុតរបស់លោកអ្នក សម្រាប់សេវាជំនួយផ្នែកច្បាប់ដ៏ប្រសើរ។
-          </span>
-        </p>
+        <h1>{{ t("aboutPage.introTitle") }}</h1>
+        <p class="lead">{{ t("aboutPage.introLead") }}</p>
       </div>
       <div class="bottom-round-bg" aria-hidden="true"></div>
     </section>
     <ExpertiseSection animate-counters />
-    <AboutOverview />
-
+    <FirmSection />
     <div class="trust-divider">
       <p class="trust-badge">
         <svg
@@ -54,12 +46,7 @@ useImageReveals(page);
           />
         </svg>
 
-        <span class="en">
-          Trust Dharmasastra for Reliable Notarization Anytime, Anywhere
-        </span>
-        <span class="km">
-          ជឿទុកចិត្តលើធម្មសាស្ត្រ សម្រាប់សេវាសារការីគ្រប់ពេលវេលា និងគ្រប់ទីកន្លែង
-        </span>
+        <span>{{ t("aboutPage.trustStatement") }}</span>
       </p>
     </div>
     <TeamSection />

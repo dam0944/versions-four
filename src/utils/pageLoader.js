@@ -3,10 +3,7 @@ import Loading from '../components/layout/Loading.vue';
 import { site } from '../config/site.js';
 
 export function createPageLoader() {
-  if (!site.loader.enabled || window.matchMedia('(prefers-reduced-motion: reduce)').matches)
-    return null;
-  // This runs once when the document opens, including browser refreshes.
-  // Vue Router navigation does not restart the loading screen.
+  if (!site.loader.enabled || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return null;
   const host = document.createElement('div');
   document.body.append(host);
   const loaderApp = createApp(Loading);
