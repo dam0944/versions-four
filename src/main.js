@@ -5,9 +5,11 @@ import router from './router/index.js';
 import './assets/styles/main.css';
 import { createPageLoader } from './utils/pageLoader.js';
 import { markPageMounted } from './utils/pageMounted.js';
+import { installInspectionDeterrent } from './utils/inspectionDeterrent.js';
 import { i18n } from './i18n.js';
 
 async function start() {
+  installInspectionDeterrent();
   const loader = createPageLoader();
   const app = createApp(App)
     .use(createPinia())

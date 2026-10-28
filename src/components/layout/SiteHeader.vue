@@ -221,6 +221,9 @@ onBeforeUnmount(() => {
         <RouterLink to="/team">{{ t("header.team") }}</RouterLink>
         <RouterLink to="/results">{{ t("header.results") }}</RouterLink>
         <RouterLink to="/resources">{{ t("header.newsResources") }}</RouterLink>
+        <RouterLink class="reqbtn mobile-appointment" to="/contact">{{
+          t("header.appointment")
+        }}</RouterLink>
       </nav>
       <button
         class="menu-toggle"
@@ -387,6 +390,10 @@ onBeforeUnmount(() => {
   cursor: pointer;
 }
 
+.mobile-appointment {
+  display: none;
+}
+
 .menu-icon {
   position: relative;
   display: inline-block;
@@ -456,6 +463,19 @@ onBeforeUnmount(() => {
 
   .menu-toggle {
     display: inline-flex;
+  }
+
+  .top nav.is-open > .mobile-appointment {
+    display: inline-flex;
+    align-self: flex-start;
+    align-items: center;
+    justify-content: center;
+    margin-block: 12px 8px;
+    border-color: var(--color-button);
+    border-radius: 999px;
+    background: var(--color-button);
+    color: var(--color-button-text);
+    text-shadow: none;
   }
 }
 
