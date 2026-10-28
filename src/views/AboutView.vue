@@ -3,9 +3,6 @@ import { provide, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { useImageReveals } from "../composables/useImageReveals.js";
 import ExpertiseSection from "../components/about/ExpertiseSection.vue";
-// import AboutOverview from "../components/about/AboutOverview.vue";
-// import AboutValues from "../components/about/AboutValues.vue";
-// import PracticeAreas from "../components/home/PracticeAreas.vue";
 import TeamSection from "../components/about/TeamSection.vue";
 import FirmSection from "../components/home/FirmSection.vue";
 provide("disablePageAnimations", true);
@@ -183,7 +180,16 @@ h1 {
 }
 @media (max-width: 600px) {
   .about-intro {
+    aspect-ratio: auto;
+    min-height: 280px;
+    box-sizing: border-box;
     padding-block: 48px;
+  }
+
+  .in {
+    width: 100%;
+    padding-inline: 16px;
+    box-sizing: border-box;
   }
 
   .about-intro::before {

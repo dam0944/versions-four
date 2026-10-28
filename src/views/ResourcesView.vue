@@ -82,7 +82,16 @@ h1 {
 
 @media (max-width: 600px) {
   .resources-intro {
+    aspect-ratio: auto;
+    min-height: 280px;
+    box-sizing: border-box;
     padding-block: 48px;
+  }
+
+  .in {
+    width: 100%;
+    padding-inline: 16px;
+    box-sizing: border-box;
   }
 
   .resources-intro::before {
