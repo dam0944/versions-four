@@ -46,7 +46,7 @@ version-five/
 │   ├── config/             Site, office, and animation settings
 │   ├── data/               Services, skills, team, testimonials, form options
 │   ├── router/             Lazy-loaded routes and scroll restoration
-│   ├── utils/              Startup loader and motion helpers
+│   ├── utils/              Startup loader, motion, and inspection deterrent
 │   ├── views/              Four route-level page compositions
 │   ├── App.vue             Application layout
 │   └── main.js             Application bootstrap
@@ -62,6 +62,7 @@ version-five/
 - Subtle inner-page hero text animation and reduced-motion support.
 - Responsive navigation, contact form, FAQ interactions, and map embed.
 - A decorative intro on document load; route navigation does not restart it.
+- A best-effort inspection deterrent blocks the context menu and common inspection shortcuts. It cannot prevent access to code delivered to the browser.
 
 ## Content and integrations
 

@@ -12,6 +12,8 @@ npm run preview
 
 Deploy the contents of `dist/` after checking the preview. Rebuild after each source or public-asset change. Do not upload `node_modules` as the website, and do not edit `dist` as source.
 
+`vercel.json` configures baseline response security headers for Vercel deployments. If deploying elsewhere, configure equivalent headers in that host's settings. The client-side inspection deterrent is not a security boundary and cannot hide JavaScript or assets sent to visitors.
+
 ## Router fallback
 
 The project uses HTML5 history routing. Configure the host to serve `index.html` for application routes such as `/about`, `/service`, and `/contact`, while serving actual asset files normally. Without a fallback, navigation may work but refreshing an inner page can return a 404.

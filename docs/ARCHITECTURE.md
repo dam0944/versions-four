@@ -37,7 +37,7 @@ Keep reusable UI in a component, reactive lifecycle behavior in a composable, ed
 
 ## Startup and animation lifecycle
 
-`main.js` creates the optional introduction, resolves the initial route, and mounts the main app. The router waits for the mount signal before initial scroll restoration. `usePageSmoother` establishes its wrapper before view animations mount. Route and language changes refresh scroll measurements; image reveals also refresh after lazy images load. FAQ height changes are handled by the existing animation helpers.
+`main.js` installs the inspection deterrent, creates the optional introduction, resolves the initial route, and mounts the main app. The deterrent suppresses the context menu and common DevTools/view-source shortcuts as a casual-use deterrent only; browser tools and delivered source remain accessible by other means. The router waits for the mount signal before initial scroll restoration. `usePageSmoother` establishes its wrapper before view animations mount. Route and language changes refresh scroll measurements; image reveals also refresh after lazy images load. FAQ height changes are handled by the existing animation helpers.
 
 GSAP `matchMedia()` restricts enhanced motion to visitors who have not requested reduced motion. Composables revert their contexts/timelines and remove listeners on unmount. Preserve that cleanup when adding new effects. Do not create another ScrollSmoother in a section: the application already owns one.
 
