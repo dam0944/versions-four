@@ -85,7 +85,7 @@ onBeforeUnmount(() => {
       <div ref="photoRef" class="notary-photo">
         <img
           decoding="async"
-          src="/images/website-3.jpeg"
+          src="../../assets/picture/members/member-1.png"
           :alt="t('president.portraitAlt')"
           loading="lazy"
         />
@@ -197,7 +197,7 @@ onBeforeUnmount(() => {
   left: 0;
   width: 5px;
   height: 5px;
-  background: var(--color-accent);
+  /* background: var(--color-accent); */
 }
 
 .notary-photo {
@@ -231,7 +231,7 @@ onBeforeUnmount(() => {
   aspect-ratio: 1.1 / 1;
   object-fit: cover;
   object-position: center top;
-  filter: grayscale(100%);
+  /* filter: grayscale(100%); */
 }
 
 @media (max-width: 900px) {
