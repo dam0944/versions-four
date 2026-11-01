@@ -1,7 +1,6 @@
 <script setup>
 import { enhancedMotionQuery } from "../../utils/performance.js";
-
-import { onBeforeUnmount, onMounted, ref } from "vue";
+import { computed, onBeforeUnmount, onMounted, ref } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useI18n } from "vue-i18n";
@@ -10,8 +9,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 const contentRef = ref(null);
 const photoRef = ref(null);
-const { t } = useI18n();
+
+const { t, tm } = useI18n();
+
 let media;
+
+const services = computed(() => tm("president.services"));
 
 onMounted(() => {
   media = gsap.matchMedia();
@@ -19,10 +22,7 @@ onMounted(() => {
   media.add(enhancedMotionQuery, () => {
     gsap.fromTo(
       contentRef.value,
-      {
-        opacity: 0,
-        y: 48,
-      },
+      { opacity: 0, y: 48 },
       {
         opacity: 1,
         y: 0,
@@ -70,14 +70,20 @@ onBeforeUnmount(() => {
       <div ref="contentRef" class="notary-content">
         <div class="notary-section__tag">
           <b>{{ t("president.index") }}</b>
-          <span class="notary-section__tag-label">{{ t("president.label") }}</span>
+          <span class="notary-section__tag-label">
+            {{ t("president.label") }}
+          </span>
         </div>
+
         <h2>{{ t("president.name") }}</h2>
-        <p class="notary-description">{{ t("president.description") }}</p>
+
+        <p class="notary-description">
+          {{ t("president.description") }}
+        </p>
 
         <ul class="notary-services">
-          <li v-for="index in [0, 1, 2, 3]" :key="index">
-            {{ t(`president.services.${index}`) }}
+          <li v-for="(service, index) in services" :key="index">
+            {{ service }}
           </li>
         </ul>
       </div>
@@ -147,7 +153,6 @@ onBeforeUnmount(() => {
   font-size: 14px;
   line-height: 1.7;
 }
-
 .section-tag b {
   padding-right: 12px;
   border-right: 1px solid var(--color-accent-light);

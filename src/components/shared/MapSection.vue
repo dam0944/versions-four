@@ -17,7 +17,7 @@ const { t } = useI18n();
       <iframe
         class="office-map"
         :title="t('map.frameTitle')"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.97954462162!2d104.9218858!3d11.553324000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31095124baeb20fd%3A0x98df31a2bcc20c4a!2sDeCastle%20Royal!5e0!3m2!1sen!2skh!4v1793094845504!5m2!1sen!2skh"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1259.1763174519492!2d104.91051559987787!3d11.563790624445888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31095114f1138ac5%3A0x7619b468836cd886!2sPhnom%20Penh%20international%20university!5e0!3m2!1sen!2skh!4v1793550329605!5m2!1sen!2skh"
         allowfullscreen=""
         loading="lazy"
         referrerpolicy="strict-origin-when-cross-origin"

@@ -51,7 +51,7 @@ provide("disablePageAnimations", true);
           <h2>{{ t("contact.page.emailSupport") }}</h2>
 
           <p>
-            <a href="s.sreng@bakc.org.kh">s.sreng@bakc.org.kh</a>
+            <a href="s.sreng@bakc.org.kh">s.srensg@bakc.org.kh</a>
             <br />
             <a href="mailto:support@example.com">support@example.com</a>
           </p>
@@ -77,7 +77,7 @@ provide("disablePageAnimations", true);
           <h2>{{ t("contact.page.letsTalk") }}</h2>
 
           <p>
-            {{ t("contact.page.phone", { numbers: "(+855)16 625 190 / 86 868 892" }) }}
+            {{ t("contact.page.phone", { numbers: "(+855)16 625 160 / 86 868 192" }) }}
             <br />
           </p>
         </div>

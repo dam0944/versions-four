@@ -37,7 +37,7 @@
       "dedicated": "Dedicated to your legal needs.",
       "quote": "Clear advice, personal attention, and a commitment to protecting your interests.",
       "intro": "We help individuals and businesses understand their legal options and move forward with confidence.",
-      "heading": "Our areas of legal expertise",
+      "heading": "Our Areas of Legal Expertise",
       "description": "Practical guidance tailored to your circumstances, from personal matters to business requirements."
     },
     "team": {
@@ -348,6 +348,12 @@
     "title": "Our Team",
     "lead": "Working together to protect your interests."
   },
+  "teamMemberPage": {
+    "eyebrow": "Our Team",
+    "biography": "Biography",
+    "responsibilities": "Leadership & Professional Responsibilities",
+    "philosophy": "Professional Philosophy"
+  },
   "consultationBanner": {
     "title": "Get the Legal Support You Deserve",
     "subtitle": "Schedule Your Consultation Today",
@@ -371,20 +377,20 @@
       }
     ]
   },
-  "president": {
-    "index": "03",
-    "label": "OUR PRESIDENT",
-    "name": "PIN VANNAK",
-    "title": "President",
-    "description": "As President, we assume overall legal leadership and strategic decision-making in full compliance with applicable laws. Our office provides comprehensive governance oversight, legal representation, and policy direction to ensure operational integrity and organizational growth from planning to implementation.",
-    "services": [
-      "Legal Representation",
-      "Regulatory Compliance",
-      "Policy Formulation",
-      "Risk Management"
-    ],
-    "portraitAlt": "Portrait of the president"
-  },
+    "president": {
+      "index": "03",
+      "label": "OUR FOUNDER & PRESIDENT",
+      "name": "PIN VANNAK",
+      "title": "Founder and President",
+      "description": "Mr. Pin Vannak is the Founder and President of Dharmasastra Law Group. He provides overall leadership and strategic direction for the firm, overseeing legal services, client representation, regulatory compliance, and institutional development while maintaining the highest professional standards.",
+      "services": [
+        "Legal Representation",
+        "Regulatory Compliance",
+        "Policy Formulation",
+        "Risk Management"
+      ],
+      "portraitAlt": "Portrait of Mr. Pin Vannak, Founder and President"
+    },
   "testimonials": {
     "index": "04",
     "label": "Client testimonials",
@@ -596,8 +602,8 @@
       "lead": "Let’s discuss your legal and notarial needs.",
       "description": "Contact our office to ask a question or arrange an appointment.",
       "headOffice": "Head Office",
-      "addressLine1": "Your street address",
-      "addressLine2": "Building De Castle Royal, Boeng Keng Kang, Phnom Penh",
+      "addressLine1": "Building No. 36 (Phnom Penh International University),",
+      "addressLine2": "Street 169, Sangkat Veal Vong, Khan 7 Makara, Phnom Penh.",
       "emailSupport": "Email Support",
       "letsTalk": "Let’s Talk",
       "phone": "Phone: {numbers}",
@@ -608,7 +614,7 @@
   "map": {
     "label": "Office Location",
     "title": "Visit Our Office",
-    "address": "Address: Building De Castle Royal, Boeng Keng Kang, Phnom Penh, Cambodia",
+    "address": "Address: Building No. 36 (Phnom Penh International University), Street 169, Sangkat Veal Vong, Khan 7 Makara, Phnom Penh, Cambodia.",
     "hours": "Opening Hours and Appointment Requirements: 8:30 AM – 5:30 PM",
     "directions": "Get Directions",
     "frameTitle": "Map of Phnom Penh, Cambodia"

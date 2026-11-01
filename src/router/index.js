@@ -11,6 +11,8 @@ const ServiceView = () => import('../views/ServiceView.vue');
 const TeamView = () => import('../views/TeamView.vue');
 const ResultView = () => import('../views/ResultView.vue');
 const ResourcesView = () => import('../views/ResourcesView.vue');
+const TeamMemberDetailView = () => import('../views/TeamMemberDetailView.vue');
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +29,10 @@ const router = createRouter({
     {
       path: '/team',
       component: TeamView,
+    },
+    {
+      path: '/team/:id',
+      component: TeamMemberDetailView,
     },
     {
       path: '/results',

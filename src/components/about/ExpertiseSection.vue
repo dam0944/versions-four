@@ -1,13 +1,8 @@
 <script setup>
-import { ref } from "vue";
 import { useI18n } from "vue-i18n";
-import { skills } from "../../data/skills.js";
-import { useSkillCounters } from "../../composables/useSkillCounters.js";
+import { legalExpertise } from "../../data/legalExpertise.js";
 
-const props = defineProps({ animateCounters: Boolean });
 const { t, locale } = useI18n();
-const skillList = ref(null);
-const counters = useSkillCounters(skillList, skills, () => props.animateCounters);
 </script>
 
 <template>
@@ -33,22 +28,18 @@ const counters = useSkillCounters(skillList, skills, () => props.animateCounters
       <div class="expert-skills">
         <h3>{{ t("aboutPage.expertise.heading") }}</h3>
         <p class="skills-description">{{ t("aboutPage.expertise.description") }}</p>
-        <div ref="skillList" class="skill-list">
-          <div v-for="(skill, index) in skills" :key="skill.id" class="skill-item">
-            <div class="skill-label">
-              <span>{{ locale === "km" ? skill.km : skill.en }}</span>
-              <span class="skill-value" :aria-label="`${skill.value}%`">
-                <span aria-hidden="true">{{ Math.round(counters[index].value) }}%</span>
-              </span>
+        <div class="expertise-list">
+          <article
+            v-for="area in legalExpertise"
+            :key="area.id"
+            class="expertise-item"
+          >
+            <span class="expertise-number" aria-hidden="true">{{ area.id }}</span>
+            <div>
+              <h4>{{ locale === "km" ? area.km.title : area.en.title }}</h4>
+              <p>{{ locale === "km" ? area.km.description : area.en.description }}</p>
             </div>
-
-            <div class="skill-track" aria-hidden="true">
-              <div
-                class="skill-fill"
-                :style="{ width: `${counters[index].value}%` }"
-              ></div>
-            </div>
-          </div>
+          </article>
         </div>
       </div>
     </div>
@@ -185,37 +176,39 @@ const counters = useSkillCounters(skillList, skills, () => props.animateCounters
   line-height: 1.8;
 }
 
-.skill-list {
+.expertise-list {
   display: grid;
-  gap: 24px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 32px;
 }
 
-.skill-label {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 16px;
-  margin-bottom: 10px;
-  font-size: 15px;
-  line-height: 1.5;
+.expertise-item {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 12px;
+  padding: 20px 0;
+  border-top: 1px solid rgb(255 255 255 / 22%);
 }
 
-.skill-value {
-  font-variant-numeric: tabular-nums;
-  flex-shrink: 0;
+.expertise-number {
   color: var(--color-accent-light);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.expertise-item h4 {
+  margin: 0;
+  color: #fff;
+  font-size: 16px;
   font-weight: 600;
+  line-height: 1.45;
 }
 
-.skill-track {
-  height: 6px;
-  overflow: hidden;
-  background: #e4e8ed;
-}
-
-.skill-fill {
-  height: 100%;
-  background: var(--color-accent-light);
+.expertise-item p {
+  margin: 8px 0 0;
+  color: #c8d0dc;
+  font-size: 13px;
+  line-height: 1.7;
 }
 
 @media (max-width: 900px) {
@@ -251,6 +244,10 @@ const counters = useSkillCounters(skillList, skills, () => props.animateCounters
 
   .expert-skills {
     padding-top: 40px;
+  }
+
+  .expertise-list {
+    grid-template-columns: 1fr;
   }
 }
 

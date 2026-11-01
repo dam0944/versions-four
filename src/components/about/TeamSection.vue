@@ -61,12 +61,18 @@ onBeforeUnmount(() => media?.revert());
       <div class="team-grid">
         <article v-for="member in members" :key="member.id" class="team-card">
           <div class="team-photo">
-            <img
-              decoding="async"
-              :src="member.image"
-              :alt="locale === 'km' ? member.name.km : member.name.en"
-              loading="lazy"
-            />
+            <RouterLink
+              class="team-member-link"
+              :to="`/team/${member.id}`"
+              :aria-label="`View ${locale === 'km' ? member.name.km : member.name.en}'s profile`"
+            >
+              <img
+                decoding="async"
+                :src="member.image"
+                :alt="locale === 'km' ? member.name.km : member.name.en"
+                loading="lazy"
+              />
+            </RouterLink>
 
             <div v-if="member.socials && member.socials.length" class="team-socials">
               <a
@@ -96,7 +102,11 @@ onBeforeUnmount(() => media?.revert());
           </div>
 
           <div class="team-details">
-            <h3>{{ locale === 'km' ? member.name.km : member.name.en }}</h3>
+            <h3>
+              <RouterLink :to="`/team/${member.id}`">
+                {{ locale === 'km' ? member.name.km : member.name.en }}
+              </RouterLink>
+            </h3>
             <p class="member-position">
               {{ locale === 'km' ? member.position.km : member.position.en }}
             </p>
@@ -160,6 +170,12 @@ onBeforeUnmount(() => media?.revert());
   background: #e9e9e9;
 }
 
+.team-member-link {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
 .team-photo img {
   display: block;
   width: 100%;
@@ -177,6 +193,7 @@ onBeforeUnmount(() => media?.revert());
 
 .team-socials {
   position: absolute;
+  z-index: 1;
   top: -10px;
   right: 16px;
   display: flex;
@@ -220,6 +237,18 @@ onBeforeUnmount(() => media?.revert());
   font-size: 20px;
   font-weight: 500;
   line-height: 1.4;
+}
+
+.team-details h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.team-details h3 a:hover,
+.team-details h3 a:focus-visible {
+  color: #8b6b34;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .team-details p {
