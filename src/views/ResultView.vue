@@ -10,8 +10,8 @@ const { t } = useI18n();
   <div class="cases-page">
     <section class="team-intro">
       <div class="in">
-        <h1>{{ t("resultsPage.heroTitle") }}</h1>
-        <p class="lead">{{ t("resultsPage.heroIntro") }}</p>
+        <!-- <h1>{{ t("resultsPage.heroTitle") }}</h1> -->
+        <!-- <p class="lead">{{ t("resultsPage.heroIntro") }}</p> -->
       </div>
       <div class="bottom-round-bg" aria-hidden="true"></div>
     </section>

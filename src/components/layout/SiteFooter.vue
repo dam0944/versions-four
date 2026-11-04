@@ -10,7 +10,9 @@ const { t } = useI18n();
         <RouterLink class="brand" to="/"
           ><img style="width: 50px" src="/logo.png" :alt="t('header.logoAlt')" /><span
             ><b>{{ t("footer.brand") }}</b
-            ><small>{{ t("footer.brandSubtitle") }}</small></span
+            >
+            <!-- <small>{{ t("footer.brandSubtitle") }}</small> -->
+            </span
           ></RouterLink
         >
         <nav>
