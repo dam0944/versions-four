@@ -1,7 +1,7 @@
 <script setup>
 import { useI18n } from "vue-i18n";
 import ResultsPracticeAreas from "../components/results/ResultsPracticeAreas.vue";
-import { RouterLink } from "vue-router";
+import Contact from "../components/results/Contact.vue";
 
 const { t } = useI18n();
 </script>
@@ -10,12 +10,13 @@ const { t } = useI18n();
   <div class="cases-page">
     <section class="team-intro">
       <div class="in">
-        <h1>{{ t("resultsPage.title") }}</h1>
-        <p class="lead">{{ t("resultsPage.intro") }}</p>
+        <h1>{{ t("resultsPage.heroTitle") }}</h1>
+        <p class="lead">{{ t("resultsPage.heroIntro") }}</p>
       </div>
       <div class="bottom-round-bg" aria-hidden="true"></div>
     </section>
     <ResultsPracticeAreas />
+    <Contact/>
   </div>
 </template>
 
@@ -27,7 +28,7 @@ const { t } = useI18n();
   aspect-ratio: 3 / 1;
   display: flex;
   align-items: center;
-  background-color: #18272b;
+  /* background-color: #18272b; */
   color: #fff;
   padding-block: 80px;
   text-align: center;
@@ -60,7 +61,7 @@ const { t } = useI18n();
 }
 
 .in {
-  max-width: 1520px;
+  width: min(100% - 48px, 1520px);
   margin-inline: auto;
 }
 
@@ -74,26 +75,11 @@ h1 {
 }
 
 .lead {
-  color: #fff;
   max-width: 600px;
   margin: 24px auto 0;
+  color: #fff;
   font-size: clamp(1.125rem, 2.5vw, 1.75rem);
   line-height: 1.35;
-}
-
-.areas-link {
-  display: inline-block;
-  margin-top: 24px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid var(--color-accent-light);
-  color: var(--color-accent-light);
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.areas-link:focus-visible {
-  outline: 2px solid var(--color-accent-light);
-  outline-offset: 5px;
 }
 
 @media (max-width: 600px) {

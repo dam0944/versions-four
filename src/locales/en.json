@@ -13,17 +13,27 @@
   "about": {
     "index": "01",
     "label": "About the Firm",
-    "eyebrow": "Law meets technology.",
-    "headline": "Where law meets technology, we build clear and adaptive legal solutions.",
-    "p1": "Dharmasastra law group is a full-service legal window, specializing in emerging technology and supporting tech startup ecosystems.",
-    "p2": "We help MSMEs and industries adopt and transform with technology, delivering adaptive legal solutions in cyberspace.",
+    "whoWeAre": "Who We Are",
+    "p1": "Dharmasastra Law Group is a Cambodia-based law firm providing comprehensive legal services and professional legal solutions to individuals, businesses, corporations, investors, and international clients.",
+    "p2": "With a strong understanding of Cambodia's legal framework, business environment, and regulatory landscape, we are committed to delivering reliable, practical, and client-oriented legal services. Our firm combines local legal knowledge with an international business perspective to help clients navigate complex legal matters, manage risks, protect their interests, and achieve their objectives with confidence.",
+    "p3": "Our practice covers a broad range of legal areas, including civil law, criminal law, commercial and corporate law, banking and finance, business registration, investment, contract law, dispute resolution, and regulatory compliance. We assist clients throughout different stages of their legal and business activities, from initial consultation and legal structuring to negotiation, representation, litigation, and dispute resolution.",
+    "p4": "We take pride in our professional team of lawyers, legal advisers, legal assistants, and supporting personnel, who work collaboratively to understand each client's circumstances and provide appropriate legal strategies and solutions.",
+    "p5": "At Dharmasastra Law Group, we believe that effective legal services go beyond interpreting and applying the law. They require a thorough understanding of our clients' businesses, objectives, challenges, and long-term interests.",
     "mission": {
-      "title": "Mission",
-      "text": "To provide unprecedented legal services through the knowledge, experience and best practices of our lawyers, experts and advisors, working closely with government bodies and strategic partners to help our clients achieve their goals."
+      "title": "Our Mission",
+      "text": "To provide accessible, reliable, and effective legal services through professional expertise, practical legal solutions, and a strong commitment to our clients' interests.",
+      "commitmentIntro": "We strive to:",
+      "commitments": [
+        "Protect and safeguard our clients' legal rights and legitimate interests.",
+        "Deliver practical, timely, and commercially sound legal advice.",
+        "Support local and international businesses in navigating Cambodia's legal and regulatory environment.",
+        "Promote legal awareness, compliance, and respect for the rule of law.",
+        "Build long-term professional relationships based on trust, integrity, and accountability."
+      ]
     },
     "vision": {
-      "title": "Vision",
-      "text": "To be a beacon of legal excellence and technological leadership, delivering high-quality, adaptive legal solutions in an atmosphere of teamwork, creativity and responsiveness."
+      "title": "Our Vision",
+      "text": "To become a trusted and reputable Cambodian law firm recognized for professional excellence, integrity, and the delivery of quality legal services, while contributing to the development of the legal profession and business environment in Cambodia."
     }
   },
   "aboutPage": {
@@ -104,7 +114,7 @@
     "navigationLabel": "Main navigation",
     "logoAlt": "Dharmasastra",
     "home": "Home",
-    "about": "About",
+    "about": "About Us",
     "team": "Our Team",
     "results": "Results",
     "newsResources": "News & Resources",
@@ -113,134 +123,22 @@
     "appointment": "Request an Appointment"
   },
   "resultsPage": {
-    "title": "Case Results",
-    "intro": "Proven Legal Track Record",
-    "areasLink": "Areas of Practice",
-    "areasLabel": "Areas of practice",
-    "areasIntro": "We have been involved in leading, and as a supporting team, in establishing, implementing, monitoring and evaluating policies and regulations in telecommunications and information and communication technology (ICT), and Science, Technology and Innovation (STI), including:",
+    "heroTitle": "Case Results",
+    "heroIntro": "Proven Legal Track Record",
+    "title": "Our Areas of Expertise",
     "areas": [
-      {
-        "id": "01",
-        "title": "Technology and Telecommunications",
-        "projects": [
-          "Telecom Infrastructures",
-          "Assessment on Telecommunication Coverage",
-          "Networking Lab",
-          "Quarantine Application",
-          "Broadband to School",
-          "Computer Lab"
-        ]
-      },
-      {
-        "id": "02",
-        "title": "Cybersecurity",
-        "projects": [
-          "Improving Incident Response Capability Through Security Operation Center-iCAPS"
-        ]
-      },
-      {
-        "id": "03",
-        "title": "Supporting Investors and Tech Startups",
-        "projects": [
-          "ICT Innovation Center",
-          "Technology Center",
-          "Seedstars Summit Asia 2019",
-          "Research Project: Cambodia’s Vibrant Tech Startup Ecosystem",
-          "School Management and Administration System",
-          "Cambodia ICT Volunteer Programs",
-          "Digital Literacy Programs",
-          "Scholarship Programs",
-          "Incubation Programs"
-        ]
-      },
-      {
-        "id": "04",
-        "title": "Fintech",
-        "projects": [
-          "Legal Compliance for Requesting License(s) to Enter into Fintech Regulatory Sandbox in the Securities Sector"
-        ]
-      },
-      {
-        "id": "05",
-        "title": "Reskilling and Upskilling",
-        "projects": [
-          "Assessment: Demand for and Supply of Digital Skills in Cambodia",
-          "Assessment: Innovation Investment Index 2023"
-        ]
-      },
-      {
-        "id": "06",
-        "title": "Real Estate and Construction",
-        "projects": [
-          "Feasibility Study on Cambodia-Korea SEZ",
-          "Reviewing, Drafting and Management: Sale and Purchase Agreements"
-        ]
-      },
-      {
-        "id": "07",
-        "title": "Industry, Investment and Mergers and Acquisitions (M&A)",
-        "projects": [
-          "Feasibility Study on the Relocation of Korean Factories to Cambodia",
-          "Qualified Investment Project",
-          "Incorporation and Licensing"
-        ]
-      },
-      {
-        "id": "08",
-        "title": "Legal Advisory and Consultancy",
-        "projects": [
-          "Law on Telecommunications",
-          "Sub-Decree on Mechanisms for Implementing Universal Service Obligations Program in Telecommunications",
-          "Sub-Decree on Mechanisms for Managing Capacity Building, Research, and Development in Telecommunications and ICT",
-          "Sub-Decree on Licensing of Operations in ICT",
-          "Sub-Decree on Digital Signature",
-          "Draft Law on Technology Transfer",
-          "Draft Sub-Decree on Spectrum Management"
-        ]
-      },
-      {
-        "id": "09",
-        "title": "Technology Transformation in MSMEs",
-        "projects": [
-          "Tech Startup and MSMEs Forums",
-          "SMEs Go Digital"
-        ]
-      },
-      {
-        "id": "10",
-        "title": "Commercial Contracts",
-        "projects": [
-          "Partnership Agreements",
-          "Franchise Agreements",
-          "Sale and Purchase Agreements",
-          "Joint Venture Agreements",
-          "Non-disclosure Agreements",
-          "Lease Agreements"
-        ]
-      },
-      {
-        "id": "11",
-        "title": "Business Establishment",
-        "projects": [
-          "Business Registration, Incorporation and M&A"
-        ]
-      },
-      {
-        "id": "12",
-        "title": "Public Policy",
-        "projects": [
-          "Telecom and ICT Development Policy 2020",
-          "Cambodia Financial Technology Development Policy 2023-2028"
-        ]
-      },
-      {
-        "id": "13",
-        "title": "Public Relations",
-        "projects": [
-          "Digital Cambodia Conference and Expo",
-          "Cambodia Tech Expo"
-        ]
-      }
+      "Civil and Criminal Law",
+      "Corporate and Commercial Law",
+      "Banking and Financial Law",
+      "Business Registration and Licensing",
+      "Investment and Foreign Direct Investment",
+      "Contract Drafting, Review and Negotiation",
+      "Land, Property and Real Estate Law",
+      "Labor and Employment Law",
+      "Taxation and Regulatory Compliance",
+      "Intellectual Property Law",
+      "Dispute Resolution, Litigation and Arbitration",
+      "Mediation and Negotiation"
     ]
   },
   "resourcesPage": {

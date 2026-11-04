@@ -112,11 +112,11 @@ provide("disablePageAnimations", true);
   isolation: isolate;
   overflow: hidden;
   box-sizing: border-box;
-  aspect-ratio: 3 / 1;
+  aspect-ratio: 3.86 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 80px 24px;
+  padding: 32px 24px;
   background-color: #18272b;
   color: #fff;
   text-align: center;
@@ -153,7 +153,7 @@ provide("disablePageAnimations", true);
 .contact-info {
   position: relative;
   margin-top: -1px;
-  padding: 80px 32px;
+  padding: 40px 32px;
   background: #fff;
 }
 
@@ -172,9 +172,9 @@ provide("disablePageAnimations", true);
 
 .contact-info-item svg {
   display: block;
-  width: 32px;
-  height: 32px;
-  margin: 0 auto 20px;
+  width: 24px;
+  height: 24px;
+  margin: 0 auto 14px;
   fill: none;
   stroke: var(--color-accent);
   stroke-width: 1.5;
@@ -183,9 +183,9 @@ provide("disablePageAnimations", true);
 }
 
 .contact-info-item h2 {
-  margin: 0 0 14px;
+  margin: 0 0 10px;
   color: var(--color-primary);
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
 }
@@ -194,7 +194,7 @@ provide("disablePageAnimations", true);
   margin: 0;
   color: #647080;
   font-size: 14px;
-  line-height: 1.8;
+  line-height: 1.65;
   overflow-wrap: anywhere;
 }
 
@@ -235,25 +235,25 @@ provide("disablePageAnimations", true);
   margin: 0;
   color: var(--color-accent-light);
   font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2rem, 4.2vw, 3rem);
   font-weight: 500;
   line-height: 1.35;
 }
 
 .hero-lead {
   max-width: 650px;
-  margin: 24px auto 0;
+  margin: 16px auto 0;
   color: #fff;
-  font-size: clamp(1.125rem, 2.5vw, 1.75rem);
-  line-height: 1.6;
+  font-size: clamp(1rem, 1.8vw, 1.375rem);
+  line-height: 1.5;
 }
 
 .hero-description {
   max-width: 600px;
-  margin: 16px auto 0;
+  margin: 12px auto 0;
   color: #d4dce5;
-  font-size: 16px;
-  line-height: 1.8;
+  font-size: clamp(0.875rem, 1vw, 1rem);
+  line-height: 1.6;
 }
 
 @media (max-width: 600px) {

@@ -1,6 +1,7 @@
 <script setup>
 import { useI18n } from "vue-i18n";
 import ResourcesLibrary from "../components/resources/ResourcesLibrary.vue";
+import ContactSection from "../components/shared/ContactSection.vue";
 
 const { t } = useI18n();
 </script>
@@ -15,6 +16,7 @@ const { t } = useI18n();
       <div class="bottom-round-bg" aria-hidden="true"></div>
     </section>
     <ResourcesLibrary />
+    <ContactSection/>
   </div>
 </template>
 

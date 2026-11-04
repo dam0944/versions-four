@@ -420,22 +420,24 @@ body:has(#l-km:checked) .hero h1 {
   color: #ebe7dd;
 }
 .firm {
-  padding: 100px 24px 130px;
+  padding: clamp(64px, 8vw, 112px) 24px;
 }
 .firm .in {
-  display: grid;
-  grid-template-columns: 1fr 2.7fr 1.5fr;
-  gap: 0 48px;
-  align-items: start;
+  width: min(1200px, 100%);
+  margin-inline: auto;
+}
+.firm-heading {
+  margin-bottom: 28px;
 }
 .firm .tag {
   display: flex;
-  gap: 22px;
-  font-size: 12px;
+  gap: 12px;
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   color: #3d4a63;
-  padding-top: 6px;
+  padding-top: 0;
+  margin-bottom: 14px;
 }
 .firm .tag b {
   color: #c99a52;
@@ -447,24 +449,8 @@ body:has(#l-km:checked) .firm .tag {
   font-weight: 400;
   font-size: 11px;
 }
-.firm .kick {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #a67c3a;
-  margin: 0 0 24px;
-  padding-top: 6px;
-}
-body:has(#l-km:checked) .firm .kick {
-  font-family: var(--font-khmer-brand);
-  font-weight: 400;
-  letter-spacing: 0.03em;
-  text-transform: none;
-  font-size: 11px;
-}
 .firm h2 {
-  font-size: clamp(2.2rem, 4.5vw, 4.6rem);
+  font-size: clamp(2.25rem, 4vw, 3.75rem);
   line-height: 1.12;
   font-weight: 500;
   color: #16233a;
@@ -474,48 +460,74 @@ body:has(#l-km:checked) .firm h2 {
   line-height: 1.2;
 }
 .firm .txt {
-  padding-top: 58px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(32px, 6vw, 88px);
+  align-items: start;
 }
-.firm .txt p {
-  font-size: 15.5px;
-  line-height: 1.9;
+.firm .txt-details p {
+  font-size: 16px;
+  line-height: 1.8;
   color: #5a6477;
-  margin: 0 0 1.2em;
+  margin: 0;
 }
-.firm .txt p:first-child {
+.firm .txt-details p + p {
+  margin-top: 1.1em;
+}
+.firm .txt-lead p {
+  max-width: 22ch;
+  margin: 0;
   color: #1b2840;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.8vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.35;
 }
 .firm .mv {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 48px;
-  max-width: var(--content-max-width);
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(40px, 6vw, 88px);
+  width: min(1200px, 100%);
   margin: 56px auto 0;
 }
 .firm .mv > div {
   min-width: 0;
-  padding-top: 20px;
-  border-top: 1px solid #c99a52;
+  padding: 20px 0 0;
+  border-top: 1px solid rgb(166 124 58 / 45%);
 }
 .firm .mv h3 {
-  margin: 0 0 12px;
+  margin: 0 0 16px;
   color: #16233a;
-  font-size: 1.15rem;
+  font-size: 1.5rem;
   font-weight: 600;
 }
 .firm .mv p {
   max-width: 50rem;
   margin: 0;
   color: #5a6477;
-  font-size: 15px;
-  line-height: 1.9;
+  font-size: 16px;
+  line-height: 1.8;
+}
+.firm .mv .commitment-intro {
+  margin-top: 16px;
+  font-weight: 600;
+}
+.firm .mv ul {
+  margin: 8px 0 0;
+  padding-left: 1.4rem;
+  color: #5a6477;
+  font-size: 16px;
+  line-height: 1.75;
+}
+.firm .mv li + li {
+  margin-top: 6px;
 }
 body:has(#l-km:checked) .firm .mv h3 {
   line-height: 1.6;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) .firm h2,
-  :root:not([data-theme='light']) .firm .txt p:first-child,
+  :root:not([data-theme='light']) .firm .txt-lead p,
   :root:not([data-theme='light']) .firm .mv h3 {
     color: var(--ink);
   }
@@ -530,22 +542,33 @@ body:has(#l-km:checked) .firm .mv h3 {
   .firm {
     padding: 64px 20px;
   }
-  .firm .in {
-    grid-template-columns: 1fr;
-    gap: 1.4rem;
+  .firm-heading {
+    margin-bottom: 32px;
   }
   .firm .txt {
-    padding-top: 12px;
+    gap: 24px;
   }
   .firm .mv {
     gap: 32px;
     margin-top: 40px;
   }
 }
+@media (max-width: 700px) {
+  .firm .txt {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .firm .txt-lead p {
+    max-width: 24ch;
+  }
+}
 @media (max-width: 600px) {
+  .firm .tag {
+    margin-bottom: 14px;
+  }
   .firm .mv {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 32px;
     margin-top: 32px;
   }
 }

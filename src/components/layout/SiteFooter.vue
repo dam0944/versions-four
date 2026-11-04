@@ -13,12 +13,8 @@ const { t } = useI18n();
             ><small>{{ t("footer.brandSubtitle") }}</small></span
           ></RouterLink
         >
-        <p class="tagline">{{ t("footer.tagline") }}</p>
         <nav>
           <RouterLink to="/about">{{ t("footer.about") }}</RouterLink>
-          <RouterLink to="/service">{{ t("footer.services") }}</RouterLink>
-          <RouterLink to="/#notary">{{ t("footer.notary") }}</RouterLink>
-          <RouterLink to="/contact">{{ t("footer.contact") }}</RouterLink>
         </nav>
       </div>
       <div class="copy">{{ t("footer.copyright") }}</div>
