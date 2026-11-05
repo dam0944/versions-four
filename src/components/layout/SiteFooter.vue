@@ -16,7 +16,7 @@ const { t } = useI18n();
           ></RouterLink
         >
         <nav>
-          <RouterLink to="/about">{{ t("footer.about") }}</RouterLink>
+          <!-- <RouterLink to="/about">{{ t("footer.about") }}</RouterLink> -->
         </nav>
       </div>
       <div class="copy">{{ t("footer.copyright") }}</div>
