@@ -46,7 +46,7 @@ useImageReveals(page);
         <span>{{ t("aboutPage.trustStatement") }}</span>
       </p>
     </div>
-    <TeamSection />
+    <!-- <TeamSection /> -->
   </div>
 </template>
 

@@ -13,7 +13,6 @@ import PrepareSection from "../components/home/PrepareSection.vue";
 import ContactSection from "../components/shared/ContactSection.vue";
 import MapSection from "../components/shared/MapSection.vue";
 import TestimonialsSection from "../components/home/TestimonialsSection.vue";
-import PracticeAreas from "../components/home/PracticeAreas.vue";
 
 const page = ref(null);
 const language = inject("language");
@@ -33,10 +32,10 @@ watch(language, async () => {
     <ServicesSection />
     <ValuesSection />
     <NotarySection />
-    <TestimonialsSection />
+    <!-- <TestimonialsSection /> -->
     <ProcessSection />
     <FaqSection />
-    <PracticeAreas />
+    <!-- <PracticeAreas /> -->
     <PrepareSection />
     <ContactSection />
     <MapSection />
